@@ -13,7 +13,8 @@ class ReflectionPipeline(BasePipeline):
         draft_points = KnowledgeCleaner.clean_bullet_points(draft)
         
         # Step 2: Reflect
-        draft_summary = '\n'.join(f'- {p}' for p in draft_points[:10])
+        # Removed the [:10] limit to show all points for comprehensive reflection
+        draft_summary = '\n'.join(f'- {p}' for p in draft_points)
         reflect_prompt = f"""
         Here is a list of knowledge points about '{query}':
         {draft_summary}

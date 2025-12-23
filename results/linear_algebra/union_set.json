@@ -1,0 +1,3015 @@
+[
+  {
+    "representative_text": "Vector addition: Components of two vectors added component-wise.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Vector addition: Components of two vectors added component-wise.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Vector subtraction: Components of two vectors subtracted component-wise.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Vector subtraction: Components of two vectors subtracted component-wise.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Scalar multiplication: Components of a vector multiplied by a scalar.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Scalar multiplication: Components of a vector multiplied by a scalar.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Scalar addition: Components of two vectors added using a scalar.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Scalar addition: Components of two vectors added using a scalar.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Vector magnitude (norm): Length of a vector.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Vector magnitude (norm): Length of a vector.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Vector magnitude (Euclidean norm): Length of a vector using the Euclidean distance formula.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Vector magnitude (Euclidean norm): Length of a vector using the Euclidean distance formula.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Vector length: Magnitude of a vector.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Vector length: Magnitude of a vector.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Dot product (inner product): Product of two vectors' corresponding components.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Dot product (inner product): Product of two vectors' corresponding components.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Dot product (Euclidean inner product): Product of two vectors' corresponding components using the Euclidean distance formula.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Dot product (Euclidean inner product): Product of two vectors' corresponding components using the Euclidean distance formula.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Cross product (outer product): Product of two vectors resulting in a vector perpendicular to both.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Cross product (outer product): Product of two vectors resulting in a vector perpendicular to both.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear transformation: A function that preserves linear combinations.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear transformation: A function that preserves linear combinations.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear transformation matrix: A matrix representing a linear transformation.",
+    "pipelines_covered": [
+      "Sequential_Turn_4",
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Linear transformation matrix: A matrix representing a linear transformation.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      },
+      {
+        "text": "Linear Transformation Matrix: The matrix of a linear transformation is a matrix that represents the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9467391282550378
+      }
+    ]
+  },
+  {
+    "representative_text": "Inverse linear transformation: A linear transformation with an inverse.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Inverse linear transformation: A linear transformation with an inverse.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Kernel (null space) of a linear transformation: Set of vectors mapped to the zero vector.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Kernel (null space) of a linear transformation: Set of vectors mapped to the zero vector.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Range (image) of a linear transformation: Set of vectors mapped by the linear transformation.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Range (image) of a linear transformation: Set of vectors mapped by the linear transformation.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Matrix addition: Element-wise addition of two matrices.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Matrix addition: Element-wise addition of two matrices.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Matrix multiplication: Product of two matrices using the dot product of rows and columns.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Matrix multiplication: Product of two matrices using the dot product of rows and columns.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Matrix multiplication (determinant): Product of two matrices resulting in a scalar determinant.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Matrix multiplication (determinant): Product of two matrices resulting in a scalar determinant.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Matrix multiplication (inverse): Product of a matrix and its inverse.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Matrix multiplication (inverse): Product of a matrix and its inverse.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Matrix rank: Maximum number of linearly independent rows or columns.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Matrix rank: Maximum number of linearly independent rows or columns.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Eigenvalue: A scalar that represents how much a linear transformation stretches or shrinks a vector.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Eigenvalue: A scalar that represents how much a linear transformation stretches or shrinks a vector.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Eigenvector: A non-zero vector that, when transformed by a linear transformation, results in a scaled version of itself.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Eigenvector: A non-zero vector that, when transformed by a linear transformation, results in a scaled version of itself.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Eigenspace: Set of all eigenvectors corresponding to a given eigenvalue.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Eigenspace: Set of all eigenvectors corresponding to a given eigenvalue.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal vectors: Vectors with zero dot product.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal vectors: Vectors with zero dot product.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal matrix: A square matrix whose columns and rows are orthogonal.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal matrix: A square matrix whose columns and rows are orthogonal.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Gram-Schmidt process: Method for generating an orthonormal basis from a given set of vectors.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Gram-Schmidt process: Method for generating an orthonormal basis from a given set of vectors.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Basis: A set of linearly independent vectors that span a vector space.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_2",
+      "Sequential_Turn_4",
+      "Sequential_Turn_1",
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 8,
+    "detailed_sources": [
+      {
+        "text": "Basis: A set of linearly independent vectors that span a vector space.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      },
+      {
+        "text": "A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 0.9256890604521524
+      },
+      {
+        "text": "A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9781548930447862
+      },
+      {
+        "text": "Basis of a Vector Space: A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9610691914211523
+      },
+      {
+        "text": "A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9889466253109572
+      },
+      {
+        "text": "Basis of a Vector Space: A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9753813274260165
+      },
+      {
+        "text": "A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9901269055128992
+      },
+      {
+        "text": "Basis of a Vector Space: A basis of a vector space is a set of linearly independent vectors that span the space.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9802277227368048
+      }
+    ]
+  },
+  {
+    "representative_text": "Span: Set of all linear combinations of a basis.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Span: Set of all linear combinations of a basis.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Basis dimension: Number of vectors in a basis.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Basis dimension: Number of vectors in a basis.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Span dimension: Number of vectors in the span of a set.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Span dimension: Number of vectors in the span of a set.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear independence: A set of vectors cannot be expressed as a linear combination of each other.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear independence: A set of vectors cannot be expressed as a linear combination of each other.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear dependence: A set of vectors can be expressed as a linear combination of each other.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear dependence: A set of vectors can be expressed as a linear combination of each other.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear system: A system of linear equations with coefficients in a vector space.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear system: A system of linear equations with coefficients in a vector space.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Solution of a linear system: A set of vectors that satisfy a linear system.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Solution of a linear system: A set of vectors that satisfy a linear system.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Symmetric matrix: A square matrix that is equal to its transpose.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Symmetric matrix: A square matrix that is equal to its transpose.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Skew-symmetric matrix: A square matrix that is equal to its negative transpose.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Skew-symmetric matrix: A square matrix that is equal to its negative transpose.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Symmetric matrix (eigenvectors): Eigenvectors of a symmetric matrix are orthogonal.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Symmetric matrix (eigenvectors): Eigenvectors of a symmetric matrix are orthogonal.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Skew-symmetric matrix (eigenvectors): Eigenvectors of a skew-symmetric matrix are orthogonal.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Skew-symmetric matrix (eigenvectors): Eigenvectors of a skew-symmetric matrix are orthogonal.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Determinant of a matrix: Scalar value that represents the volume scaling factor of a linear transformation.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Determinant of a matrix: Scalar value that represents the volume scaling factor of a linear transformation.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Inverse of a matrix: Matrix that, when multiplied by the original matrix, results in the identity matrix.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Inverse of a matrix: Matrix that, when multiplied by the original matrix, results in the identity matrix.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear Algebra and computer graphics: Linear algebra is used to perform transformations and projections in computer graphics.",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear Algebra and computer graphics: Linear algebra is used to perform transformations and projections in computer graphics.",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Quadratic forms and bilinear forms",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Quadratic forms and bilinear forms",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal diagonalization",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal diagonalization",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Jordan canonical form",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Jordan canonical form",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and differential equations",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and differential equations",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and numerical analysis",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and numerical analysis",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and machine learning",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and machine learning",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Properties of linear transformations (e.g. injectivity, surjectivity, invertibility)",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Properties of linear transformations (e.g. injectivity, surjectivity, invertibility)",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and group theory",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and group theory",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Matrix eigenvalue decomposition",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Matrix eigenvalue decomposition",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Singular value decomposition (SVD)",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Singular value decomposition (SVD)",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Diagonalization of matrices",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Diagonalization of matrices",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Eigenvalue decomposition of matrices",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Eigenvalue decomposition of matrices",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and combinatorics",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and combinatorics",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Properties of symmetric and skew-symmetric matrices (e.g. definiteness, definiteness criteria)",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Properties of symmetric and skew-symmetric matrices (e.g. definiteness, definiteness criteria)",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Inverse of a matrix using minors and cofactors",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Inverse of a matrix using minors and cofactors",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Determinant of a matrix using minors and cofactors",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Determinant of a matrix using minors and cofactors",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Laplace expansion",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Laplace expansion",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "LU decomposition",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "LU decomposition",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Cholesky decomposition",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Cholesky decomposition",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "QR decomposition",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "QR decomposition",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and physics (e.g. mechanics, electromagnetism)",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and physics (e.g. mechanics, electromagnetism)",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear algebra and signal processing",
+    "pipelines_covered": [
+      "ReflectionPipeline"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Linear algebra and signal processing",
+        "pipeline": "ReflectionPipeline",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Addition of vectors: The sum of two vectors is the vector obtained by placing the corresponding components of the two vectors head to tail.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "Addition of vectors: The sum of two vectors is the vector obtained by placing the corresponding components of the two vectors head to tail.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "Addition of vectors: The sum of two vectors is the vector obtained by placing the corresponding components of the two vectors head to tail.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9935296693484268
+      },
+      {
+        "text": "Addition of vectors: The sum of two vectors is the vector obtained by placing the corresponding components of the two vectors head to tail.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9983803913599368
+      },
+      {
+        "text": "Addition of vectors: The sum of two vectors is the vector obtained by placing the corresponding components of the two vectors head to tail.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9992806512588818
+      }
+    ]
+  },
+  {
+    "representative_text": "Scalar multiplication of vectors: The product of a scalar and a vector is the vector obtained by multiplying each component of the vector by the scalar.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "Scalar multiplication of vectors: The product of a scalar and a vector is the vector obtained by multiplying each component of the vector by the scalar.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "Scalar multiplication of vectors: The product of a scalar and a vector is the vector obtained by multiplying each component of the vector by the scalar.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9916506529674296
+      },
+      {
+        "text": "Scalar multiplication of vectors: The product of a scalar and a vector is the vector obtained by multiplying each component of the vector by the scalar.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9979108367834119
+      },
+      {
+        "text": "Scalar multiplication of vectors: The product of a scalar and a vector is the vector obtained by multiplying each component of the vector by the scalar.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9990725075332839
+      }
+    ]
+  },
+  {
+    "representative_text": "Vector addition properties:",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "Vector addition properties:",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "Vector addition properties:",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9899643237125743
+      },
+      {
+        "text": "Vector addition properties:",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9974892357363754
+      },
+      {
+        "text": "Vector addition properties:",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9988857032278842
+      }
+    ]
+  },
+  {
+    "representative_text": "Vector scalar multiplication properties:",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "Vector scalar multiplication properties:",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "Vector scalar multiplication properties:",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9838555933159987
+      },
+      {
+        "text": "Vector scalar multiplication properties:",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9959548617410273
+      },
+      {
+        "text": "Vector scalar multiplication properties:",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9982056806119424
+      }
+    ]
+  },
+  {
+    "representative_text": "A vector space is a set of vectors that is closed under addition and scalar multiplication.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "A vector space is a set of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A vector space is a set of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9911758702637505
+      },
+      {
+        "text": "A vector space is a set of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9977927076364009
+      },
+      {
+        "text": "A vector space is a set of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9990202409399588
+      }
+    ]
+  },
+  {
+    "representative_text": "The set of all vectors with a specific norm (magnitude) is a vector space.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "The set of all vectors with a specific norm (magnitude) is a vector space.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The set of all vectors with a specific norm (magnitude) is a vector space.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9897042198899805
+      }
+    ]
+  },
+  {
+    "representative_text": "A subspace of a vector space is a subset of vectors that is closed under addition and scalar multiplication.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "A subspace of a vector space is a subset of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A subspace of a vector space is a subset of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9892341770204716
+      },
+      {
+        "text": "A subspace of a vector space is a subset of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9973046327191025
+      },
+      {
+        "text": "A subspace of a vector space is a subset of vectors that is closed under addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9988036352355886
+      }
+    ]
+  },
+  {
+    "representative_text": "A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9896478708286535
+      },
+      {
+        "text": "Linear Independence of a Set of Vectors: A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9579254758857716
+      },
+      {
+        "text": "A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9923450834210938
+      },
+      {
+        "text": "Linear Independence of a Set of Vectors: A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9758258785841122
+      },
+      {
+        "text": "A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9912298380398363
+      },
+      {
+        "text": "Linear Independence of a Set of Vectors: A set of vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9806508893405914
+      }
+    ]
+  },
+  {
+    "representative_text": "A set of vectors is said to be linearly dependent if at least one vector in the set can be expressed as a linear combination of the others.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "A set of vectors is said to be linearly dependent if at least one vector in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A set of vectors is said to be linearly dependent if at least one vector in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.988139201408046
+      },
+      {
+        "text": "A set of vectors is said to be linearly dependent if at least one vector in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9970322243499142
+      },
+      {
+        "text": "A set of vectors is said to be linearly dependent if at least one vector in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9986832232423575
+      }
+    ]
+  },
+  {
+    "representative_text": "The span of a set of vectors is the set of all linear combinations of the vectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.990885532952523
+      },
+      {
+        "text": "Span of a Set of Vectors: The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9724360007125403
+      },
+      {
+        "text": "The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9947829616073699
+      },
+      {
+        "text": "Span of a Set of Vectors: The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9843733149650995
+      },
+      {
+        "text": "The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9942503797647347
+      },
+      {
+        "text": "Span of a Set of Vectors: The span of a set of vectors is the set of all linear combinations of the vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.98754016342297
+      }
+    ]
+  },
+  {
+    "representative_text": "The dimension of a vector space is the number of vectors in a basis for the space.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 5,
+    "detailed_sources": [
+      {
+        "text": "The dimension of a vector space is the number of vectors in a basis for the space.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The dimension of a vector space is the number of vectors in a basis for the space.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9910898246333699
+      },
+      {
+        "text": "The dimension of a vector space is the number of vectors in a basis for the space.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9977706602730694
+      },
+      {
+        "text": "The dimension of a vector space is the number of vectors in a basis for the space.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.999010391392032
+      },
+      {
+        "text": "Dimension of a Vector Space: The dimension of a vector space is the number of vectors in a basis for the space.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9724095288738446
+      }
+    ]
+  },
+  {
+    "representative_text": "A basis of a vector space can be extended to a basis of a larger vector space.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "A basis of a vector space can be extended to a basis of a larger vector space.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A basis of a vector space can be extended to a basis of a larger vector space.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9918458042723857
+      },
+      {
+        "text": "A basis of a vector space can be extended to a basis of a larger vector space.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9979599797170271
+      },
+      {
+        "text": "A basis of a vector space can be extended to a basis of a larger vector space.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9990943413906588
+      }
+    ]
+  },
+  {
+    "representative_text": "A linear transformation is a function from one vector space to another that preserves the operations of vector addition and scalar multiplication.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "A linear transformation is a function from one vector space to another that preserves the operations of vector addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A linear transformation is a function from one vector space to another that preserves the operations of vector addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9911559991766423
+      },
+      {
+        "text": "A linear transformation is a function from one vector space to another that preserves the operations of vector addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9977860943539288
+      },
+      {
+        "text": "A linear transformation is a function from one vector space to another that preserves the operations of vector addition and scalar multiplication.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9990170652548636
+      }
+    ]
+  },
+  {
+    "representative_text": "The matrix of a linear transformation is a matrix that represents the transformation.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The matrix of a linear transformation is a matrix that represents the transformation.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The matrix of a linear transformation is a matrix that represents the transformation.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9891212250721072
+      },
+      {
+        "text": "The matrix of a linear transformation is a matrix that represents the transformation.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9972763394694351
+      },
+      {
+        "text": "The matrix of a linear transformation is a matrix that represents the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9987910978299819
+      }
+    ]
+  },
+  {
+    "representative_text": "The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9905295827035651
+      },
+      {
+        "text": "Kernel of a Linear Transformation: The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9658572845370887
+      },
+      {
+        "text": "The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9934147063357409
+      },
+      {
+        "text": "Kernel of a Linear Transformation: The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9803281758216549
+      },
+      {
+        "text": "The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9926121694144998
+      },
+      {
+        "text": "Kernel of a Linear Transformation: The kernel of a linear transformation is the set of vectors that are mapped to the zero vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9842161197862159
+      }
+    ]
+  },
+  {
+    "representative_text": "The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9903741160771459
+      },
+      {
+        "text": "Range of a Linear Transformation: The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9664519971767908
+      },
+      {
+        "text": "The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9940865844339251
+      },
+      {
+        "text": "Range of a Linear Transformation: The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9810326997771855
+      },
+      {
+        "text": "The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9933007574604443
+      },
+      {
+        "text": "Range of a Linear Transformation: The range of a linear transformation is the set of all vectors that are mapped to by the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9836522301072976
+      }
+    ]
+  },
+  {
+    "representative_text": "An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.990193159672552
+      },
+      {
+        "text": "Eigenvector of a Linear Transformation: An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9683875177566064
+      },
+      {
+        "text": "An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9936730667585285
+      },
+      {
+        "text": "Eigenvector of a Linear Transformation: An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9817991924987548
+      },
+      {
+        "text": "An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.993022770475099
+      },
+      {
+        "text": "Eigenvector of a Linear Transformation: An eigenvector of a linear transformation is a non-zero vector that is mapped to a scalar multiple of itself by the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9853887378514711
+      }
+    ]
+  },
+  {
+    "representative_text": "The eigenvalues and eigenvectors of a linear transformation are the solutions to the characteristic equation of the transformation.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The eigenvalues and eigenvectors of a linear transformation are the solutions to the characteristic equation of the transformation.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The eigenvalues and eigenvectors of a linear transformation are the solutions to the characteristic equation of the transformation.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9875432381776608
+      },
+      {
+        "text": "The eigenvalues and eigenvectors of a linear transformation are the solutions to the characteristic equation of the transformation.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9968798710060334
+      },
+      {
+        "text": "The eigenvalues and eigenvectors of a linear transformation are the solutions to the characteristic equation of the transformation.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9986152846877052
+      }
+    ]
+  },
+  {
+    "representative_text": "Two vectors are said to be orthogonal if their dot product is zero.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "Two vectors are said to be orthogonal if their dot product is zero.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "Two vectors are said to be orthogonal if their dot product is zero.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9922201130121672
+      },
+      {
+        "text": "Two vectors are said to be orthogonal if their dot product is zero.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9980525397995101
+      },
+      {
+        "text": "Two vectors are said to be orthogonal if their dot product is zero.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9991352180217865
+      }
+    ]
+  },
+  {
+    "representative_text": "A set of vectors is said to be orthogonal if every pair of vectors in the set is orthogonal.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "A set of vectors is said to be orthogonal if every pair of vectors in the set is orthogonal.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A set of vectors is said to be orthogonal if every pair of vectors in the set is orthogonal.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9922907436229075
+      },
+      {
+        "text": "A set of vectors is said to be orthogonal if every pair of vectors in the set is orthogonal.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9980712636252476
+      },
+      {
+        "text": "A set of vectors is said to be orthogonal if every pair of vectors in the set is orthogonal.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9991436769359842
+      }
+    ]
+  },
+  {
+    "representative_text": "The dot product of two vectors can be used to calculate the angle between the vectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The dot product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The dot product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9919735755756951
+      },
+      {
+        "text": "The dot product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9979902721705498
+      },
+      {
+        "text": "The dot product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9991075223554706
+      }
+    ]
+  },
+  {
+    "representative_text": "An inner product space is a vector space with an inner product that satisfies certain properties.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "An inner product space is a vector space with an inner product that satisfies certain properties.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "An inner product space is a vector space with an inner product that satisfies certain properties.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9918501671780262
+      },
+      {
+        "text": "An inner product space is a vector space with an inner product that satisfies certain properties.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9979596689260873
+      },
+      {
+        "text": "An inner product space is a vector space with an inner product that satisfies certain properties.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9990939948538718
+      }
+    ]
+  },
+  {
+    "representative_text": "The inner product of two vectors can be used to calculate the angle between the vectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The inner product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The inner product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9927432310210954
+      },
+      {
+        "text": "The inner product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.998184351415431
+      },
+      {
+        "text": "The inner product of two vectors can be used to calculate the angle between the vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9991938072712714
+      }
+    ]
+  },
+  {
+    "representative_text": "The norm of a vector can be calculated using the inner product.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The norm of a vector can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The norm of a vector can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9927227697659917
+      },
+      {
+        "text": "The norm of a vector can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9981792542130982
+      },
+      {
+        "text": "The norm of a vector can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9991915500512956
+      }
+    ]
+  },
+  {
+    "representative_text": "The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 10,
+    "detailed_sources": [
+      {
+        "text": "The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.990829922490962
+      },
+      {
+        "text": "Orthogonal Projection: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9672342598267514
+      },
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.976914365267227
+      },
+      {
+        "text": "The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9909052562556772
+      },
+      {
+        "text": "Orthogonal Projection: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9834006494357095
+      },
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9843713596475712
+      },
+      {
+        "text": "The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9895797905961689
+      },
+      {
+        "text": "Orthogonal Projection: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9862145476806395
+      },
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9864581297622713
+      }
+    ]
+  },
+  {
+    "representative_text": "The orthogonal projection of a vector onto a subspace can be calculated using the inner product.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The orthogonal projection of a vector onto a subspace can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The orthogonal projection of a vector onto a subspace can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9915603666337994
+      },
+      {
+        "text": "The orthogonal projection of a vector onto a subspace can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9978866912304564
+      },
+      {
+        "text": "The orthogonal projection of a vector onto a subspace can be calculated using the inner product.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.999061571757511
+      }
+    ]
+  },
+  {
+    "representative_text": "Gaussian elimination is a method for solving systems of linear equations using row operations.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "Gaussian elimination is a method for solving systems of linear equations using row operations.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "Gaussian elimination is a method for solving systems of linear equations using row operations.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9894935301290247
+      },
+      {
+        "text": "Gaussian elimination is a method for solving systems of linear equations using row operations.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9973708653322423
+      },
+      {
+        "text": "Gaussian elimination is a method for solving systems of linear equations using row operations.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9988331750149184
+      }
+    ]
+  },
+  {
+    "representative_text": "The reduced row echelon form of a matrix is a matrix that is in row echelon form and has the property that the first non-zero entry of each row is to the right of the first non-zero entry of the row above it.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The reduced row echelon form of a matrix is a matrix that is in row echelon form and has the property that the first non-zero entry of each row is to the right of the first non-zero entry of the row above it.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The reduced row echelon form of a matrix is a matrix that is in row echelon form and has the property that the first non-zero entry of each row is to the right of the first non-zero entry of the row above it.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9887680412587883
+      },
+      {
+        "text": "The reduced row echelon form of a matrix is a matrix that is in row echelon form and has the property that the first non-zero entry of each row is to the right of the first non-zero entry of the row above it.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9971867837489798
+      },
+      {
+        "text": "The reduced row echelon form of a matrix is a matrix that is in row echelon form and has the property that the first non-zero entry of each row is to the right of the first non-zero entry of the row above it.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9987512547180761
+      }
+    ]
+  },
+  {
+    "representative_text": "A matrix is invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "A matrix is invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "A matrix is invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9918900821775202
+      },
+      {
+        "text": "Invertibility of a Matrix: A matrix is said to be invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9400280070486068
+      },
+      {
+        "text": "A matrix is invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9917210134558482
+      },
+      {
+        "text": "Invertibility of a Matrix: A matrix is said to be invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9660841798160404
+      },
+      {
+        "text": "A matrix is invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9894795330561533
+      },
+      {
+        "text": "Invertibility of a Matrix: A matrix is said to be invertible if it has an inverse that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9731596506697981
+      }
+    ]
+  },
+  {
+    "representative_text": "The determinant of a matrix can be used to determine whether the matrix is invertible.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The determinant of a matrix can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The determinant of a matrix can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9919441311101432
+      },
+      {
+        "text": "The determinant of a matrix can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9979855331772784
+      },
+      {
+        "text": "The determinant of a matrix can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.999105812276529
+      }
+    ]
+  },
+  {
+    "representative_text": "The inverse of a matrix can be calculated using the adjoint and the determinant.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The inverse of a matrix can be calculated using the adjoint and the determinant.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The inverse of a matrix can be calculated using the adjoint and the determinant.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9882852587977204
+      },
+      {
+        "text": "The inverse of a matrix can be calculated using the adjoint and the determinant.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9970671422067701
+      },
+      {
+        "text": "The inverse of a matrix can be calculated using the adjoint and the determinant.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9986984427263828
+      }
+    ]
+  },
+  {
+    "representative_text": "The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 7,
+    "detailed_sources": [
+      {
+        "text": "The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9901357592486005
+      },
+      {
+        "text": "Determinant of a Matrix: The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9659337743621547
+      },
+      {
+        "text": "The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9937958616768768
+      },
+      {
+        "text": "Determinant of a Matrix: The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9806315782009846
+      },
+      {
+        "text": "The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9930142612251693
+      },
+      {
+        "text": "Determinant of a Matrix: The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9845541419228342
+      }
+    ]
+  },
+  {
+    "representative_text": "The determinant of a matrix can be used to calculate the inverse of the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_1",
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 4,
+    "detailed_sources": [
+      {
+        "text": "The determinant of a matrix can be used to calculate the inverse of the matrix.",
+        "pipeline": "Sequential_Turn_1",
+        "similarity": 1.0
+      },
+      {
+        "text": "The determinant of a matrix can be used to calculate the inverse of the matrix.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 0.9888245414643831
+      },
+      {
+        "text": "The determinant of a matrix can be used to calculate the inverse of the matrix.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9972039494433679
+      },
+      {
+        "text": "The determinant of a matrix can be used to calculate the inverse of the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9987593090378978
+      }
+    ]
+  },
+  {
+    "representative_text": "Triangle Inequality: The triangle inequality states that for any two vectors a and b, the magnitude of their sum is less than or equal to the sum of their magnitudes, i.e., ||a + b|| ≤ ||a|| + ||b||.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Triangle Inequality: The triangle inequality states that for any two vectors a and b, the magnitude of their sum is less than or equal to the sum of their magnitudes, i.e., ||a + b|| ≤ ||a|| + ||b||.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Triangle Inequality: The triangle inequality states that for any two vectors a and b, the magnitude of their sum is less than or equal to the sum of their magnitudes, i.e., ||a + b|| ≤ ||a|| + ||b||.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Triangle Inequality: The triangle inequality states that for any two vectors a and b, the magnitude of their sum is less than or equal to the sum of their magnitudes, i.e., ||a + b|| ≤ ||a|| + ||b||.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Cauchy-Schwarz Inequality: The Cauchy-Schwarz inequality states that for any two vectors a and b, the square of the magnitude of their dot product is less than or equal to the product of their magnitudes, i.e., (a · b)^2 ≤ ||a||^2 ||b||^2.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Cauchy-Schwarz Inequality: The Cauchy-Schwarz inequality states that for any two vectors a and b, the square of the magnitude of their dot product is less than or equal to the product of their magnitudes, i.e., (a · b)^2 ≤ ||a||^2 ||b||^2.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Cauchy-Schwarz Inequality: The Cauchy-Schwarz inequality states that for any two vectors a and b, the square of the magnitude of their dot product is less than or equal to the product of their magnitudes, i.e., (a · b)^2 ≤ ||a||^2 ||b||^2.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Cauchy-Schwarz Inequality: The Cauchy-Schwarz inequality states that for any two vectors a and b, the square of the magnitude of their dot product is less than or equal to the product of their magnitudes, i.e., (a · b)^2 ≤ ||a||^2 ||b||^2.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Triangle Inequality for Vector Addition: The triangle inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The length of the side a + b is less than or equal to the sum of the lengths of sides a and b.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Triangle Inequality for Vector Addition: The triangle inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The length of the side a + b is less than or equal to the sum of the lengths of sides a and b.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Triangle Inequality for Vector Addition: The triangle inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The length of the side a + b is less than or equal to the sum of the lengths of sides a and b.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9999999999999999
+      },
+      {
+        "text": "Triangle Inequality for Vector Addition: The triangle inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The length of the side a + b is less than or equal to the sum of the lengths of sides a and b.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9999999999999999
+      }
+    ]
+  },
+  {
+    "representative_text": "Span and Linear Independence: A set of vectors is linearly independent if and only if its span is the entire vector space. This means that every vector in the space can be expressed as a linear combination of the vectors in the set.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Span and Linear Independence: A set of vectors is linearly independent if and only if its span is the entire vector space. This means that every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Span and Linear Independence: A set of vectors is linearly independent if and only if its span is the entire vector space. This means that every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "text": "Span and Linear Independence: A set of vectors is linearly independent if and only if its span is the entire vector space. This means that every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9999999999999998
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear Combination: A linear combination of a set of vectors is a vector that can be expressed as a sum of scalar multiples of the vectors in the set.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Linear Combination: A linear combination of a set of vectors is a vector that can be expressed as a sum of scalar multiples of the vectors in the set.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Linear Combination: A linear combination of a set of vectors is a vector that can be expressed as a sum of scalar multiples of the vectors in the set.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Linear Combination: A linear combination of a set of vectors is a vector that can be expressed as a sum of scalar multiples of the vectors in the set.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Spanning Set: A set of vectors is said to span a vector space if every vector in the space can be expressed as a linear combination of the vectors in the set.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 5,
+    "detailed_sources": [
+      {
+        "text": "Spanning Set: A set of vectors is said to span a vector space if every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Spanning Set: A set of vectors is said to span a vector space if every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Spanning Set of a Vector Space: A set of vectors is said to span a vector space if every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.979562759277561
+      },
+      {
+        "text": "Spanning Set: A set of vectors is said to span a vector space if every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9977288648994804
+      },
+      {
+        "text": "Spanning Set of a Vector Space: A set of vectors is said to span a vector space if every vector in the space can be expressed as a linear combination of the vectors in the set.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9884678147784615
+      }
+    ]
+  },
+  {
+    "representative_text": "Real Part of a Linear Transformation: The real part of a linear transformation is the part of the transformation that maps the real part of the input to the real part of the output.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Real Part of a Linear Transformation: The real part of a linear transformation is the part of the transformation that maps the real part of the input to the real part of the output.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Real Part of a Linear Transformation: The real part of a linear transformation is the part of the transformation that maps the real part of the input to the real part of the output.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Real Part of a Linear Transformation: The real part of a linear transformation is the part of the transformation that maps the real part of the input to the real part of the output.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Characteristic Equation: The characteristic equation of a linear transformation is the polynomial equation obtained by setting the determinant of the matrix of the transformation minus the identity matrix equal to zero.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 5,
+    "detailed_sources": [
+      {
+        "text": "Characteristic Equation: The characteristic equation of a linear transformation is the polynomial equation obtained by setting the determinant of the matrix of the transformation minus the identity matrix equal to zero.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Characteristic Equation: The characteristic equation of a linear transformation is the polynomial equation obtained by setting the determinant of the matrix of the transformation minus the identity matrix equal to zero.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Characteristic Equation of a Linear Transformation: The characteristic equation of a linear transformation is the polynomial equation obtained by setting the determinant of the matrix of the transformation minus the identity matrix equal to zero.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9781146363824068
+      },
+      {
+        "text": "Characteristic Equation: The characteristic equation of a linear transformation is the polynomial equation obtained by setting the determinant of the matrix of the transformation minus the identity matrix equal to zero.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9975670329439835
+      },
+      {
+        "text": "Characteristic Equation of a Linear Transformation: The characteristic equation of a linear transformation is the polynomial equation obtained by setting the determinant of the matrix of the transformation minus the identity matrix equal to zero.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9876495839077196
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal Complement: The orthogonal complement of a subspace is the set of vectors that are orthogonal to every vector in the subspace.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 5,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal Complement: The orthogonal complement of a subspace is the set of vectors that are orthogonal to every vector in the subspace.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Orthogonal Complement: The orthogonal complement of a subspace is the set of vectors that are orthogonal to every vector in the subspace.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Orthogonal Complement of a Subspace: The orthogonal complement of a subspace is the set of vectors that are orthogonal to every vector in the subspace.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9777129869948958
+      },
+      {
+        "text": "Orthogonal Complement: The orthogonal complement of a subspace is the set of vectors that are orthogonal to every vector in the subspace.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9975230421087838
+      },
+      {
+        "text": "Orthogonal Complement of a Subspace: The orthogonal complement of a subspace is the set of vectors that are orthogonal to every vector in the subspace.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9874208801405397
+      }
+    ]
+  },
+  {
+    "representative_text": "Inner Product of Two Vectors: The inner product of two vectors a and b is a scalar that represents the amount of \"similarity\" between the two vectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Inner Product of Two Vectors: The inner product of two vectors a and b is a scalar that represents the amount of \"similarity\" between the two vectors.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Inner Product of Two Vectors: The inner product of two vectors a and b is a scalar that represents the amount of \"similarity\" between the two vectors.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Inner Product of Two Vectors: The inner product of two vectors a and b is a scalar that represents the amount of \"similarity\" between the two vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Inner Product of a Vector with Itself: The inner product of a vector a with itself is the square of the magnitude of a.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 5,
+    "detailed_sources": [
+      {
+        "text": "Inner Product of a Vector with Itself: The inner product of a vector a with itself is the square of the magnitude of a.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Inner Product of a Vector with Itself: The inner product of a vector a with itself is the square of the magnitude of a.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Inner Product of a Vector with Itself in an Inner Product Space: The inner product of a vector a with itself in an inner product space is the square of the magnitude of a.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9382784127984269
+      },
+      {
+        "text": "Inner Product of a Vector with Itself: The inner product of a vector a with itself is the square of the magnitude of a.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9931430403688054
+      },
+      {
+        "text": "Inner Product of a Vector with Itself in an Inner Product Space: The inner product of a vector a with itself in an inner product space is the square of the magnitude of a.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9649406393089354
+      }
+    ]
+  },
+  {
+    "representative_text": "Inner Product of Two Vectors in an Inner Product Space: The inner product of two vectors a and b in an inner product space satisfies certain properties, such as linearity in the first argument and conjugate symmetry.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Inner Product of Two Vectors in an Inner Product Space: The inner product of two vectors a and b in an inner product space satisfies certain properties, such as linearity in the first argument and conjugate symmetry.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Inner Product of Two Vectors in an Inner Product Space: The inner product of two vectors a and b in an inner product space satisfies certain properties, such as linearity in the first argument and conjugate symmetry.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Inner Product of Two Vectors in an Inner Product Space: The inner product of two vectors a and b in an inner product space satisfies certain properties, such as linearity in the first argument and conjugate symmetry.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal Projection of a Vector onto a Subspace Using the Gram-Schmidt Process: The orthogonal projection of a vector onto a subspace can be calculated using the Gram-Schmidt process.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace Using the Gram-Schmidt Process: The orthogonal projection of a vector onto a subspace can be calculated using the Gram-Schmidt process.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace Using the Gram-Schmidt Process: The orthogonal projection of a vector onto a subspace can be calculated using the Gram-Schmidt process.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace Using the Gram-Schmidt Process: The orthogonal projection of a vector onto a subspace can be calculated using the Gram-Schmidt process.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Gaussian Elimination Algorithm: The Gaussian elimination algorithm is a method for solving systems of linear equations by transforming the matrix of the system into row echelon form using elementary row operations.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Gaussian Elimination Algorithm: The Gaussian elimination algorithm is a method for solving systems of linear equations by transforming the matrix of the system into row echelon form using elementary row operations.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Gaussian Elimination Algorithm: The Gaussian elimination algorithm is a method for solving systems of linear equations by transforming the matrix of the system into row echelon form using elementary row operations.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Gaussian Elimination Algorithm: The Gaussian elimination algorithm is a method for solving systems of linear equations by transforming the matrix of the system into row echelon form using elementary row operations.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Row Echelon Form: A matrix is said to be in row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 5,
+    "detailed_sources": [
+      {
+        "text": "Row Echelon Form: A matrix is said to be in row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Row Echelon Form: A matrix is said to be in row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Row Echelon Form of a Matrix: A matrix is said to be in row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9753979647752167
+      },
+      {
+        "text": "Row Echelon Form: A matrix is said to be in row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9972683629610511
+      },
+      {
+        "text": "Row Echelon Form of a Matrix: A matrix is said to be in row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9861042499419399
+      }
+    ]
+  },
+  {
+    "representative_text": "Determinant of a Matrix: The determinant of a matrix is a scalar that can be used to determine whether the matrix is invertible.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Determinant of a Matrix: The determinant of a matrix is a scalar that can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Determinant of a Matrix: The determinant of a matrix is a scalar that can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 0.9999999999999999
+      },
+      {
+        "text": "Determinant of a Matrix: The determinant of a matrix is a scalar that can be used to determine whether the matrix is invertible.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9999999999999999
+      }
+    ]
+  },
+  {
+    "representative_text": "Inverse of a Matrix: The inverse of a matrix is a matrix that can be used to solve the system of linear equations represented by the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Inverse of a Matrix: The inverse of a matrix is a matrix that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Inverse of a Matrix: The inverse of a matrix is a matrix that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Inverse of a Matrix: The inverse of a matrix is a matrix that can be used to solve the system of linear equations represented by the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Determinant of a 2x2 Matrix: The determinant of a 2x2 matrix can be calculated using the formula det(A) = ad - bc.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Determinant of a 2x2 Matrix: The determinant of a 2x2 matrix can be calculated using the formula det(A) = ad - bc.",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Determinant of a 2x2 Matrix: The determinant of a 2x2 matrix can be calculated using the formula det(A) = ad - bc.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Determinant of a 2x2 Matrix: The determinant of a 2x2 matrix can be calculated using the formula det(A) = ad - bc.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Determinant of a 3x3 Matrix: The determinant of a 3x3 matrix can be calculated using the formula det(A) = a(ei - fh) - b(di - fg) + c(dh - eg).",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4",
+      "Sequential_Turn_2"
+    ],
+    "occurrence_count": 3,
+    "detailed_sources": [
+      {
+        "text": "Determinant of a 3x3 Matrix: The determinant of a 3x3 matrix can be calculated using the formula det(A) = a(ei - fh) - b(di - fg) + c(dh - eg).",
+        "pipeline": "Sequential_Turn_2",
+        "similarity": 1.0
+      },
+      {
+        "text": "Determinant of a 3x3 Matrix: The determinant of a 3x3 matrix can be calculated using the formula det(A) = a(ei - fh) - b(di - fg) + c(dh - eg).",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "text": "Determinant of a 3x3 Matrix: The determinant of a 3x3 matrix can be calculated using the formula det(A) = a(ei - fh) - b(di - fg) + c(dh - eg).",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Triangle Inequality for Scalar Multiplication: The triangle inequality can be extended to scalar multiplication by considering the triangle formed by the scalar, the vector, and the resulting vector. The length of the resulting vector is less than or equal to the sum of the lengths of the scalar and the original vector.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Triangle Inequality for Scalar Multiplication: The triangle inequality can be extended to scalar multiplication by considering the triangle formed by the scalar, the vector, and the resulting vector. The length of the resulting vector is less than or equal to the sum of the lengths of the scalar and the original vector.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Triangle Inequality for Scalar Multiplication: The triangle inequality can be extended to scalar multiplication by considering the triangle formed by the scalar, the vector, and the resulting vector. The length of the resulting vector is less than or equal to the sum of the lengths of the scalar and the original vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Cauchy-Schwarz Inequality for Vector Addition: The Cauchy-Schwarz inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The square of the magnitude of the sum of the vectors is less than or equal to the sum of the squares of the magnitudes of the individual vectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Cauchy-Schwarz Inequality for Vector Addition: The Cauchy-Schwarz inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The square of the magnitude of the sum of the vectors is less than or equal to the sum of the squares of the magnitudes of the individual vectors.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Cauchy-Schwarz Inequality for Vector Addition: The Cauchy-Schwarz inequality can be extended to vector addition by considering the triangle formed by the vectors a, b, and a + b. The square of the magnitude of the sum of the vectors is less than or equal to the sum of the squares of the magnitudes of the individual vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Span of a Set of Functions: The span of a set of functions is the set of all linear combinations of the functions.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Span of a Set of Functions: The span of a set of functions is the set of all linear combinations of the functions.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Span of a Set of Functions: The span of a set of functions is the set of all linear combinations of the functions.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Linear Independence of a Set of Basis Vectors: A set of basis vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Linear Independence of a Set of Basis Vectors: A set of basis vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Linear Independence of a Set of Basis Vectors: A set of basis vectors is said to be linearly independent if none of the vectors in the set can be expressed as a linear combination of the others.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 0.9999999999999999
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal Projection of a Vector onto a Subspace Using the Householder Transform: The orthogonal projection of a vector onto a subspace can be calculated using the Householder transform.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace Using the Householder Transform: The orthogonal projection of a vector onto a subspace can be calculated using the Householder transform.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Orthogonal Projection of a Vector onto a Subspace Using the Householder Transform: The orthogonal projection of a vector onto a subspace can be calculated using the Householder transform.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0000000000000002
+      }
+    ]
+  },
+  {
+    "representative_text": "Reduced Row Echelon Form of a Matrix: A matrix is said to be in reduced row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero, and the leading entry in each row is to the right of the leading entry in the row above it.",
+    "pipelines_covered": [
+      "Sequential_Turn_3",
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 2,
+    "detailed_sources": [
+      {
+        "text": "Reduced Row Echelon Form of a Matrix: A matrix is said to be in reduced row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero, and the leading entry in each row is to the right of the leading entry in the row above it.",
+        "pipeline": "Sequential_Turn_3",
+        "similarity": 1.0
+      },
+      {
+        "text": "Reduced Row Echelon Form of a Matrix: A matrix is said to be in reduced row echelon form if it has been transformed using elementary row operations such that all the entries below the leading entry in each row are zero, and the leading entry in each row is to the right of the leading entry in the row above it.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Cauchy-Schwarz Inequality for Scalar Multiplication: The Cauchy-Schwarz inequality can be extended to scalar multiplication by considering the triangle formed by the scalar, the vector, and the resulting vector. The square of the magnitude of the resulting vector is less than or equal to the product of the square of the magnitude of the scalar and the square of the magnitude of the original vector.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Cauchy-Schwarz Inequality for Scalar Multiplication: The Cauchy-Schwarz inequality can be extended to scalar multiplication by considering the triangle formed by the scalar, the vector, and the resulting vector. The square of the magnitude of the resulting vector is less than or equal to the product of the square of the magnitude of the scalar and the square of the magnitude of the original vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Diagonalization of a Linear Transformation: A linear transformation can be diagonalized if it has a basis of eigenvectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Diagonalization of a Linear Transformation: A linear transformation can be diagonalized if it has a basis of eigenvectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal Basis of a Vector Space: A basis of a vector space is said to be orthogonal if every pair of vectors in the basis is orthogonal.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal Basis of a Vector Space: A basis of a vector space is said to be orthogonal if every pair of vectors in the basis is orthogonal.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal Decomposition of a Vector Space: A vector space can be decomposed into a direct sum of orthogonal subspaces.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal Decomposition of a Vector Space: A vector space can be decomposed into a direct sum of orthogonal subspaces.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Inner Product of a Linear Transformation: The inner product of a linear transformation can be used to calculate the angle between the input and output vectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Inner Product of a Linear Transformation: The inner product of a linear transformation can be used to calculate the angle between the input and output vectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "SVD of a Matrix: The SVD of a matrix is a factorization of the matrix into the product of three matrices: U, Σ, and V^T.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "SVD of a Matrix: The SVD of a matrix is a factorization of the matrix into the product of three matrices: U, Σ, and V^T.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "U, Σ, and V^T: U is an orthogonal matrix whose columns are the left singular vectors of the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "U, Σ, and V^T: U is an orthogonal matrix whose columns are the left singular vectors of the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Σ: Σ is a diagonal matrix whose entries are the singular values of the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Σ: Σ is a diagonal matrix whose entries are the singular values of the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "V^T: V^T is an orthogonal matrix whose columns are the right singular vectors of the matrix.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "V^T: V^T is an orthogonal matrix whose columns are the right singular vectors of the matrix.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Least Squares Solution: The least squares solution of a system of linear equations is the vector that minimizes the sum of the squared errors between the predicted and actual values.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Least Squares Solution: The least squares solution of a system of linear equations is the vector that minimizes the sum of the squared errors between the predicted and actual values.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Normal Equations: The normal equations are a system of linear equations that can be used to solve the least squares problem.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Normal Equations: The normal equations are a system of linear equations that can be used to solve the least squares problem.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Eigenvalue and Eigenvector Pairs: An eigenvalue and eigenvector pair is a pair of a scalar and a non-zero vector that satisfies the equation Ax = λx, where A is a matrix and x is a vector.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Eigenvalue and Eigenvector Pairs: An eigenvalue and eigenvector pair is a pair of a scalar and a non-zero vector that satisfies the equation Ax = λx, where A is a matrix and x is a vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Diagonalization: A matrix can be diagonalized if it has a basis of eigenvectors.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Diagonalization: A matrix can be diagonalized if it has a basis of eigenvectors.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Inner Product Spaces with Inner Product: An inner product space is a vector space with an inner product that satisfies certain properties, such as linearity in the first argument and conjugate symmetry.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Inner Product Spaces with Inner Product: An inner product space is a vector space with an inner product that satisfies certain properties, such as linearity in the first argument and conjugate symmetry.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Orthogonal Projections in Inner Product Spaces: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Orthogonal Projections in Inner Product Spaces: The orthogonal projection of a vector onto a subspace is the vector in the subspace that is closest to the original vector.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Gaussian Elimination in Inner Product Spaces: The Gaussian elimination algorithm can be used to solve systems of linear equations in inner product spaces.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Gaussian Elimination in Inner Product Spaces: The Gaussian elimination algorithm can be used to solve systems of linear equations in inner product spaces.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  },
+  {
+    "representative_text": "Determinants in Inner Product Spaces: The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix in inner product spaces.",
+    "pipelines_covered": [
+      "Sequential_Turn_4"
+    ],
+    "occurrence_count": 1,
+    "detailed_sources": [
+      {
+        "text": "Determinants in Inner Product Spaces: The determinant of a matrix can be used to calculate the volume of the parallelepiped spanned by the column vectors of the matrix in inner product spaces.",
+        "pipeline": "Sequential_Turn_4",
+        "similarity": 1.0
+      }
+    ]
+  }
+]

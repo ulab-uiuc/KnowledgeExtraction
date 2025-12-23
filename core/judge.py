@@ -1,3 +1,4 @@
+import asyncio
 from agents.clientpool import safe_ask
 from typing import List
 
@@ -12,23 +13,33 @@ class DomainJudge:
         Knowledge Point: {knowledge_point}
         
         Is the above knowledge point strictly relevant to the given domain? 
-        Answer only 'YES' or 'NO'.
+        Answer only 'YES' or 'NO'. 
+        If it's partially relevant but primarily belongs to another field, answer 'NO'.
         """
         
-        response = await safe_ask(
-            self.client_pool,
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.0
-        )
-        
-        answer = response.choices[0].message.content.strip().upper()
-        return "YES" in answer
+        try:
+            response = await safe_ask(
+                self.client_pool,
+                model=self.model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.0
+            )
+            raw_answer = response.choices[0].message.content.strip().upper()
+            
+            # Robust parsing logic:
+            has_yes = "YES" in raw_answer
+            has_no = "NO" in raw_answer
+            
+            if has_yes and not has_no:
+                return True
+            return False
+        except Exception:
+            return False
 
     async def check_batch(self, query: str, points: List[str]) -> List[bool]:
-        results = []
-        # Simple sequential check, can be improved with gather if needed
-        for point in points:
-            results.append(await self.is_in_domain(query, point))
-        return results
+        """
+        Parallelize judge calls using asyncio.gather for high performance.
+        """
+        tasks = [self.is_in_domain(query, point) for point in points]
+        return await asyncio.gather(*tasks)
 

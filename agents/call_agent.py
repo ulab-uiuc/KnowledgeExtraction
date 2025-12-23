@@ -5,7 +5,7 @@ import json
 import time
 import re
 from openai import AsyncOpenAI
-from clientpool import MultiKeyClientPool, safe_ask
+from .clientpool import MultiKeyClientPool, safe_ask
 import asyncio
 
 SYSTEM_PROMPT = """

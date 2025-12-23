@@ -1,6 +1,6 @@
 from pipelines.base import BasePipeline
 from typing import List
-import re
+from core.cleaner import KnowledgeCleaner
 
 class BaselinePipeline(BasePipeline):
     async def run(self, query: str) -> List[str]:
@@ -11,11 +11,5 @@ class BaselinePipeline(BasePipeline):
         """
         
         response = await self.agent.generate(prompt)
-        # Simple parsing logic for bullet points
-        points = re.findall(r'^\s*[\-\*\u2022]\s*(.*)', response, re.MULTILINE)
-        if not points:
-            # Fallback if regex fails: split by lines and filter
-            points = [line.strip("-* ") for line in response.split('\n') if line.strip()]
-        
-        return [p.strip() for p in points if p.strip()]
+        return KnowledgeCleaner.clean_bullet_points(response)
 

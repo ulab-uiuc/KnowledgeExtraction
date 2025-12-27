@@ -6,7 +6,7 @@ from typing import List, Dict, Any, Set
 from agents.clientpool import safe_embed, safe_ask
 
 class KnowledgeProcessor:
-    def __init__(self, client_pool, threshold: float = 0.92, candidate_threshold: float = 0.75, embed_model: str = "nvidia/llama-3.2-nv-embedqa-1b-v2"):
+    def __init__(self, client_pool, threshold: float = 0.92, candidate_threshold: float = 0.75, embed_model: str = "nvidia/nv-embed-v1"):
         self.client_pool = client_pool
         self.threshold = threshold  # Auto-merge above this
         self.candidate_threshold = candidate_threshold # Ask LLM between this and auto-merge
@@ -79,16 +79,16 @@ class KnowledgeProcessor:
 
     async def build_union_set(self, results_dir: str):
         """
-        Load all JSON files, deduplicate using a hybrid Embedding + LLM approach.
+        Load all raw JSON files, deduplicate using a hybrid Embedding + LLM approach.
         """
         self.union_set = []
-        # Exclude union_set.json and rejected_points.json
-        exclude_files = ["union_set.json", "rejected_points.json"]
-        files = [f for f in os.listdir(results_dir) if f.endswith(".json") and f not in exclude_files]
+        # Only process files ending with _raw.json
+        files = [f for f in os.listdir(results_dir) if f.endswith("_raw.json")]
         
         all_pipeline_data = {}
         for f in files:
-            pipeline_name = f.replace(".json", "")
+            # Strip both '.json' and '_raw' to match original pipeline name
+            pipeline_name = f.replace("_raw.json", "") 
             with open(os.path.join(results_dir, f), "r") as f_in:
                 all_pipeline_data[pipeline_name] = json.load(f_in)
 

@@ -20,8 +20,7 @@ async def main():
     # Initialize shared components
     client_pool = MultiKeyClientPool(api_keys=api_keys)
     gen_agent = GenAgent(api_key=api_keys)
-    # Hybrid Processor: Threshold 0.92 for auto-merge, 0.75 for LLM check
-    processor = KnowledgeProcessor(client_pool=client_pool, threshold=0.92, candidate_threshold=0.75)
+    processor = KnowledgeProcessor(client_pool=client_pool)
     judge = DomainJudge(client_pool=client_pool)
     
     # 1. User Input
@@ -31,139 +30,115 @@ async def main():
     os.makedirs(output_dir, exist_ok=True)
     
     print(f"Starting extraction for domain: {domain_query}")
-    print(f"Results will be saved to: {output_dir}\n")
     
     # 2. Auto-discovery of Pipelines
-    standard_pipelines = []
+    active_pipelines = []
     pipeline_dir = "pipelines"
-    for filename in os.listdir(pipeline_dir):
-        if filename.endswith(".py") and filename not in ["base.py"] and not filename.startswith("__"):
-            # Skip old/redundant turn-based files
-            if any(x in filename for x in ["turns", "baseline"]): continue 
-            
-            module_name = f"pipelines.{filename[:-3]}"
-            module = importlib.import_module(module_name)
-            for name, obj in inspect.getmembers(module):
-                if inspect.isclass(obj) and issubclass(obj, BasePipeline) and obj != BasePipeline:
-                    standard_pipelines.append((name, obj(gen_agent)))
+    # We only want our new saturation-capable pipelines
+    target_files = ["p2_sequential.py", "p3_reflection.py"] 
     
-    all_outputs = {}
-    pipeline_raw_counts = {}
-    rejected_log = {} # To store points rejected by the judge
-    
-    # 3. Sequential Multi-Turn Experiment (Serves as 1-4 turns)
-    print("Running Sequential Multi-Turn Experiment (1-4 turns)...")
-    history = []
-    cumulative_raw_points = []
-    
-    base_prompt = f"List all atomic knowledge points about '{domain_query}' in bullet points."
-    
-    for turn in range(1, 5):
-        print(f"  Turn {turn}...")
-        if turn == 1:
-            response = await gen_agent.generate(base_prompt)
-            current_turn_points = KnowledgeCleaner.clean_bullet_points(response)
-            history.append(f"User: {base_prompt}\nAssistant: {response}")
-        else:
-            follow_up = "What else? Please provide more specific and in-depth points that were not mentioned above."
-            context = "\n".join(history)
-            response = await gen_agent.generate(f"{context}\nUser: {follow_up}")
-            current_turn_points = KnowledgeCleaner.clean_bullet_points(response)
-            history.append(f"User: {follow_up}\nAssistant: {response}")
-        
-        cumulative_raw_points.extend(current_turn_points)
-        cumulative_raw_points = list(dict.fromkeys(cumulative_raw_points))
-        
-        # --- Pre-filtering with Judge ---
-        print(f"    Verifying {len(cumulative_raw_points)} points for Turn {turn} (Parallel)...")
-        judge_results = await judge.check_batch(domain_query, cumulative_raw_points)
-        
-        filtered_points = []
-        rejected_points = []
-        for p, is_valid in zip(cumulative_raw_points, judge_results):
-            if is_valid:
-                filtered_points.append(p)
-            else:
-                rejected_points.append(p)
-        
-        name = f"Sequential_Turn_{turn}"
-        all_outputs[name] = filtered_points
-        pipeline_raw_counts[name] = len(cumulative_raw_points)
-        rejected_log[name] = rejected_points
-        
-        with open(os.path.join(output_dir, f"{name}.json"), "w") as f:
-            json.dump(filtered_points, f, indent=2)
-        print(f"    Turn {turn} summary: {len(filtered_points)} in-domain / {len(cumulative_raw_points)} total.")
+    for filename in target_files:
+        module_name = f"pipelines.{filename[:-3]}"
+        module = importlib.import_module(module_name)
+        for name, obj in inspect.getmembers(module):
+            if inspect.isclass(obj) and issubclass(obj, BasePipeline) and obj != BasePipeline:
+                # Initialize with processor for saturation check
+                active_pipelines.append((name, obj(gen_agent, processor)))
 
-    # 4. Run Other Standard Pipelines (like Reflection)
-    print("\nRunning other standard pipelines...")
-    for name, pipeline in standard_pipelines:
+    # --- PHASE 1: SATURATION GENERATION ---
+    print("\n=== PHASE 1: GENERATION (Saturation Mode) ===")
+    pipeline_raw_outputs = {} # {pipeline_name: [raw_points]}
+    
+    for name, pipeline in active_pipelines:
         print(f"Running pipeline: {name}...")
         try:
             raw_points = await pipeline.run(domain_query)
-            # --- Pre-filtering with Judge ---
-            print(f"  Verifying {len(raw_points)} points (Parallel)...")
-            judge_results = await judge.check_batch(domain_query, raw_points)
+            pipeline_raw_outputs[name] = raw_points
             
-            filtered_points = []
-            rejected_points = []
-            for p, is_valid in zip(raw_points, judge_results):
-                if is_valid:
-                    filtered_points.append(p)
-                else:
-                    rejected_points.append(p)
-            
-            all_outputs[name] = filtered_points
-            pipeline_raw_counts[name] = len(raw_points)
-            rejected_log[name] = rejected_points
-            
-            with open(os.path.join(output_dir, f"{name}.json"), "w") as f:
-                json.dump(filtered_points, f, indent=2)
-            print(f"  {name} summary: {len(filtered_points)} in-domain / {len(raw_points)} total.")
+            # Save raw points immediately
+            with open(os.path.join(output_dir, f"{name}_raw.json"), "w") as f:
+                json.dump(raw_points, f, indent=2)
+            print(f"  {name} finished. Total raw points: {len(raw_points)}")
         except Exception as e:
             print(f"  Error running {name}: {e}")
+            import traceback
+            traceback.print_exc()
+
+    if not pipeline_raw_outputs:
+        print("No outputs generated. Exiting.")
+        return
+
+    # --- PHASE 2: GLOBAL EVALUATION ---
+    print("\n=== PHASE 2: EVALUATION (Post-Audit) ===")
     
-    # Save rejected points for inspection
-    with open(os.path.join(output_dir, "rejected_points.json"), "w") as f:
-        json.dump(rejected_log, f, indent=2)
-    print(f"\nRejected points log saved to: {os.path.join(output_dir, 'rejected_points.json')}")
+    # 1. Build Global Union Set (Deduplicate ALL raw points from ALL pipelines)
+    # We use processor.build_union_set but we need to point it to the raw files
+    print("Building global deduplicated union set...")
+    await processor.build_union_set(output_dir) 
     
-    # 5. Global Processing (Deduplication & Union Set Construction)
-    print("\nProcessing union set and deduplication (Embedding + LLM Hybrid)...")
-    # Clean output_dir of old files
-    current_files = [f"{name}.json" for name in all_outputs.keys()] + ["rejected_points.json"]
-    for f in os.listdir(output_dir):
-        if f.endswith(".json") and f != "union_set.json" and f not in current_files:
-            os.remove(os.path.join(output_dir, f))
+    # 2. Global Domain Audit (Only judge each unique node ONCE)
+    print(f"Auditing {len(processor.union_set)} unique knowledge nodes...")
+    unique_texts = [node["representative_text"] for node in processor.union_set]
+    audit_results = await judge.check_batch(domain_query, unique_texts)
+    
+    # Apply audit results to the union set
+    valid_nodes_count = 0
+    for node, is_valid in zip(processor.union_set, audit_results):
+        node["is_in_domain"] = is_valid
+        if is_valid:
+            valid_nodes_count += 1
             
-    await processor.build_union_set(output_dir)
+    print(f"Audit complete: {valid_nodes_count} valid / {len(processor.union_set)} total nodes.")
+    
+    # Save the audited union set
     processor.save_union_set(os.path.join(output_dir, "union_set.json"))
     
-    union_size = processor.get_union_size()
-    print(f"Total unique knowledge points found: {union_size}")
+    # 3. Metric Calculation
+    # Recall = (Pipeline's valid nodes) / (Total valid nodes in union set)
+    # Accuracy = (Pipeline's valid raw points) / (Pipeline's total raw points)
     
-    # 6. Metric Calculation
-    print("\nCalculating metrics...")
+    total_valid_nodes = valid_nodes_count
     pipeline_metrics = {}
-    for name, points in all_outputs.items():
+    
+    for name, raw_points in pipeline_raw_outputs.items():
+        # Find which nodes in the union set this pipeline contributed to
         covered_indices = processor.get_pipeline_coverage(name)
-        recall = len(covered_indices) / union_size if union_size > 0 else 0
-        accuracy = len(points) / pipeline_raw_counts[name] if pipeline_raw_counts[name] > 0 else 0
-        pipeline_metrics[name] = {"recall": recall, "accuracy": accuracy}
+        
+        # Filter these nodes by audit result
+        valid_covered_indices = [i for i in covered_indices if processor.union_set[i]["is_in_domain"]]
+        
+        recall = len(valid_covered_indices) / total_valid_nodes if total_valid_nodes > 0 else 0
+        
+        # For Accuracy, we need to check each raw point of this pipeline
+        # (Alternatively, use the audit result of the nodes they mapped to)
+        valid_raw_count = 0
+        # A raw point is valid if the node it was merged into is valid
+        # We can map raw points back to nodes during build_union_set if needed, 
+        # but here's a simpler way:
+        for node_idx in covered_indices:
+            node = processor.union_set[node_idx]
+            if node["is_in_domain"]:
+                # Count how many raw points from this pipeline went into this valid node
+                for source in node["source_entries"]:
+                    if source["pipeline"] == name:
+                        valid_raw_count += 1
+        
+        accuracy = valid_raw_count / len(raw_points) if raw_points else 0
+        pipeline_metrics[name] = {"recall": recall, "accuracy": accuracy, "raw_total": len(raw_points)}
+
+    # --- FINAL LEADERBOARD ---
+    print("\n" + "="*75)
+    print(f"LEADERBOARD (Saturation Extraction) for Domain: {domain_query}")
+    print("="*75)
+    print(f"{'Pipeline':30} | {'Recall':10} | {'Accuracy':10} | {'Raw Points'}")
+    print("-" * 75)
     
-    # 7. Final Report (Leaderboard)
-    print("\n" + "="*65)
-    print(f"LEADERBOARD for Domain: {domain_query}")
-    print("="*65)
-    seq_keys = [f"Sequential_Turn_{i}" for i in range(1, 5)]
-    other_keys = sorted([k for k in pipeline_metrics.keys() if k not in seq_keys], 
-                        key=lambda x: pipeline_metrics[x]['recall'], reverse=True)
-    
-    for name in seq_keys + other_keys:
-        if name not in pipeline_metrics: continue
+    sorted_keys = sorted(pipeline_metrics.keys(), key=lambda x: pipeline_metrics[x]['recall'], reverse=True)
+    for name in sorted_keys:
         m = pipeline_metrics[name]
-        print(f"{name:30} | Recall: {m['recall']:7.2%} | Accuracy: {m['accuracy']:7.2%}")
-    print("="*65)
+        print(f"{name:30} | {m['recall']:7.2%} | {m['accuracy']:7.2%} | {m['raw_total']}")
+    print("="*75)
+    print(f"Global Pseudo Ground Truth Size: {total_valid_nodes} unique points.")
 
 if __name__ == "__main__":
     asyncio.run(main())

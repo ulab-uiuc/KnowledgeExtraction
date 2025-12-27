@@ -1,31 +1,22 @@
-from pipelines.base import BasePipeline
+from .base import BasePipeline
 from typing import List
-from core.cleaner import KnowledgeCleaner
 
 class ReflectionPipeline(BasePipeline):
     """
-    Asks the model to provide information, reflect on it, and refine.
+    Asks the model to reflect on its own output and find missing points.
     """
-    async def run(self, query: str) -> List[str]:
-        # Step 1: Draft
-        prompt = f"List all atomic knowledge points about '{query}' in bullet points."
-        draft = await self.agent.generate(prompt)
-        draft_points = KnowledgeCleaner.clean_bullet_points(draft)
+    async def get_next_step(self, query: str, history: List[str], current_points: List[str], turn: int) -> str:
+        if turn == 1:
+            prompt = f"List all atomic knowledge points about '{query}' in bullet points."
+        else:
+            # Provide ALL current points for reflection
+            points_str = "\n".join([f"- {p}" for p in current_points]) 
+            prompt = f"""Based on the points already listed below, identify and list ANY additional missing knowledge points related to '{query}'. 
+            Focus on obscure details, advanced theories, or specific examples not yet covered.
+            
+            Existing points:
+            {points_str}
+            """
         
-        # Step 2: Reflect
-        # Removed the [:10] limit to show all points for comprehensive reflection
-        draft_summary = '\n'.join(f'- {p}' for p in draft_points)
-        reflect_prompt = f"""
-        Here is a list of knowledge points about '{query}':
-        {draft_summary}
-        
-        Critique this list. What key concepts or specific technical details are missing or underdeveloped?
-        Just list the missing points in bullet points.
-        """
-        refinement = await self.agent.generate(reflect_prompt)
-        refinement_points = KnowledgeCleaner.clean_bullet_points(refinement)
-        
-        # Step 3: Combine (deduplication handled in cleaner)
-        all_points = draft_points + refinement_points
-        return list(dict.fromkeys(all_points))  # Final deduplication pass
-
+        response = await self.agent.generate(prompt)
+        return response

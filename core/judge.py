@@ -3,7 +3,7 @@ from agents.clientpool import safe_ask
 from typing import List
 
 class DomainJudge:
-    def __init__(self, client_pool, model: str = "meta/llama-3.2-3b-instruct"):
+    def __init__(self, client_pool, model: str = "meta/llama-3.1-8b-instruct"):
         self.client_pool = client_pool
         self.model = model
 

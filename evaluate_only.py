@@ -5,7 +5,15 @@ from agents.clientpool import MultiKeyClientPool
 from core.processor import KnowledgeProcessor
 from core.judge import DomainJudge
 
+import argparse
+
 async def main():
+    # 0. Parse arguments
+    parser = argparse.ArgumentParser(description="LLM Knowledge Extraction Evaluation Only")
+    parser.add_argument("--query", type=str, default="Linear Algebra", help="Domain to evaluate")
+    parser.add_argument("--is_code", action="store_true", help="Whether the domain is code-related")
+    args = parser.parse_args()
+
     # Load configuration
     with open("api.json") as f:
         api_data = json.load(f)
@@ -13,11 +21,41 @@ async def main():
     
     # Initialize shared components
     client_pool = MultiKeyClientPool(api_keys=api_keys)
-    processor = KnowledgeProcessor(client_pool=client_pool)
+    
+    # Determine Embedding Strategy
+    domain_query = args.query
+    is_code_domain = args.is_code
+    config_key = "code_embed_config" if is_code_domain else "embed_config"
+    embed_config = api_data.get(config_key, api_data.get("embed_config", {}))
+    
+    if embed_config:
+        print(f"Using {'CODE' if is_code_domain else 'TEXT'} embedding model: {embed_config.get('model')} at {embed_config.get('base_url')}")
+        # Fix: Use main api_keys if the specific config doesn't have its own
+        target_keys = embed_config.get("api_keys", api_keys)
+        embed_client_pool = MultiKeyClientPool(
+            api_keys=target_keys, 
+            base_url=embed_config.get("base_url")
+        )
+        embed_model = embed_config.get("model")
+        # Load custom thresholds if present
+        threshold = embed_config.get("threshold", 0.90)
+        candidate_threshold = embed_config.get("candidate_threshold", 0.80)
+    else:
+        embed_client_pool = client_pool
+        embed_model = "nvidia/nv-embedcode-7b-v1" if is_code_domain else "nvidia/nv-embed-v1"
+        threshold = 0.90
+        candidate_threshold = 0.80
+
+    processor = KnowledgeProcessor(
+        client_pool=client_pool, 
+        embed_client_pool=embed_client_pool,
+        embed_model=embed_model,
+        threshold=threshold,
+        candidate_threshold=candidate_threshold
+    )
     judge = DomainJudge(client_pool=client_pool)
     
     # User Input
-    domain_query = "Linear Algebra" 
     query_id = domain_query.lower().replace(" ", "_")
     output_dir = os.path.join("results", query_id)
     

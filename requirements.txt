@@ -1,0 +1,7 @@
+openai
+numpy
+sglang[all]
+uvloop
+transformers>=4.45.0
+
+

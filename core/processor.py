@@ -6,8 +6,9 @@ from typing import List, Dict, Any, Set
 from agents.clientpool import safe_embed, safe_ask
 
 class KnowledgeProcessor:
-    def __init__(self, client_pool, threshold: float = 0.92, candidate_threshold: float = 0.75, embed_model: str = "nvidia/nv-embed-v1"):
+    def __init__(self, client_pool, threshold: float = 0.90, candidate_threshold: float = 0.80, embed_model: str = "nvidia/nv-embed-v1", embed_client_pool=None):
         self.client_pool = client_pool
+        self.embed_client_pool = embed_client_pool or client_pool
         self.threshold = threshold  # Auto-merge above this
         self.candidate_threshold = candidate_threshold # Ask LLM between this and auto-merge
         self.embed_model = embed_model
@@ -25,12 +26,19 @@ class KnowledgeProcessor:
         
         batch_size = 64
         all_embeddings = []
+        
+        # Check if we are using Nvidia model to add required extra_body
+        kwargs = {}
+        if "nvidia" in self.embed_model.lower():
+            kwargs["extra_body"] = {"input_type": "query", "truncate": "NONE"}
+
         for i in range(0, len(texts), batch_size):
             batch = texts[i:i + batch_size]
             response = await safe_embed(
-                self.client_pool,
+                self.embed_client_pool,
                 model=self.embed_model,
-                messages=batch
+                messages=batch,
+                **kwargs
             )
             all_embeddings.extend([np.array(d.embedding) for d in response.data])
         return all_embeddings
@@ -44,21 +52,31 @@ class KnowledgeProcessor:
 
     async def _ask_llm_if_same(self, text1: str, text2: str) -> bool:
         """
-        Use a small model to judge if two points are semantically identical.
-        Robust parsing: Must have 'YES' and must NOT have 'NO'.
+        Use a more capable model to judge if two points are semantically identical.
+        Updated to use Llama-3.1-70B for better accuracy in the grey zone.
         """
         prompt = f"""
-        Are these two bullet points describing the EXACT same mathematical knowledge point?
+        Do these two bullet points describe the same fundamental mathematical concept or property?
+        
         Point A: {text1}
         Point B: {text2}
         
-        Answer only 'YES' or 'NO'. 
-        If you are unsure, or if they describe slightly different aspects of the same topic, answer 'NO'.
+        Criteria for 'YES':
+        1. They are semantically equivalent despite different phrasing.
+        2. One is a slightly more detailed version of the same definition.
+        3. They refer to the same mathematical theorem or property.
+        
+        Criteria for 'NO':
+        1. They describe different concepts (e.g., Eigenvalue vs Eigenvector).
+        2. They describe different properties of the same object.
+        3. One is a general category and the other is a specific sub-topic.
+        
+        Answer only 'YES' or 'NO'.
         """
         try:
             response = await safe_ask(
                 self.client_pool,
-                model="meta/llama-3.2-3b-instruct",
+                model="meta/llama-3.1-70b-instruct",
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.0
             )
@@ -154,6 +172,7 @@ class KnowledgeProcessor:
         for item in self.union_set:
             serializable_set.append({
                 "representative_text": item["representative_text"],
+                "is_in_domain": item.get("is_in_domain", True), # Include audit result
                 "pipelines_covered": list(item["pipelines"]),
                 "occurrence_count": len(item["source_entries"]),
                 "detailed_sources": item["source_entries"]

@@ -11,25 +11,65 @@ from core.evaluator import Evaluator
 from core.cleaner import KnowledgeCleaner
 from pipelines.base import BasePipeline
 
+import argparse
+
 async def main():
-    # Load configuration
+    # 0. Parse arguments
+    parser = argparse.ArgumentParser(description="LLM Knowledge Extraction Evaluation Framework")
+    parser.add_argument("--query", type=str, default="Linear Algebra", help="Domain to extract knowledge from")
+    parser.add_argument("--is_code", action="store_true", help="Whether the domain is code-related")
+    args = parser.parse_args()
+
+    # 1. User Input
+    domain_query = args.query
+    is_code_domain = args.is_code
+    query_id = domain_query.lower().replace(" ", "_")
+    output_dir = os.path.join("results", query_id)
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 2. Load configuration
     with open("api.json") as f:
         api_data = json.load(f)
     api_keys = api_data["api_keys"]
     
     # Initialize shared components
     client_pool = MultiKeyClientPool(api_keys=api_keys)
+    
+    # 3. Determine Embedding Strategy
+    # If it's a code domain, look for code-specific config, otherwise use default
+    config_key = "code_embed_config" if is_code_domain else "embed_config"
+    embed_config = api_data.get(config_key, api_data.get("embed_config", {}))
+    
+    if embed_config:
+        print(f"Using {'CODE' if is_code_domain else 'TEXT'} embedding model: {embed_config.get('model')} at {embed_config.get('base_url')}")
+        # Fix: Use main api_keys if the specific config doesn't have its own
+        target_keys = embed_config.get("api_keys", api_keys)
+        embed_client_pool = MultiKeyClientPool(
+            api_keys=target_keys, 
+            base_url=embed_config.get("base_url")
+        )
+        embed_model = embed_config.get("model")
+        # Load custom thresholds if present
+        threshold = embed_config.get("threshold", 0.90)
+        candidate_threshold = embed_config.get("candidate_threshold", 0.80)
+    else:
+        # Fallback to Nvidia default
+        embed_client_pool = client_pool
+        embed_model = "nvidia/nv-embedcode-7b-v1" if is_code_domain else "nvidia/nv-embed-v1"
+        threshold = 0.90
+        candidate_threshold = 0.80
+
     gen_agent = GenAgent(api_key=api_keys)
-    processor = KnowledgeProcessor(client_pool=client_pool)
+    processor = KnowledgeProcessor(
+        client_pool=client_pool, 
+        embed_client_pool=embed_client_pool,
+        embed_model=embed_model,
+        threshold=threshold,
+        candidate_threshold=candidate_threshold
+    )
     judge = DomainJudge(client_pool=client_pool)
     
-    # 1. User Input
-    domain_query = "Linear Algebra" 
-    query_id = domain_query.lower().replace(" ", "_")
-    output_dir = os.path.join("results", query_id)
-    os.makedirs(output_dir, exist_ok=True)
-    
-    print(f"Starting extraction for domain: {domain_query}")
+    print(f"Starting extraction for domain: {domain_query} (Type: {'Code' if is_code_domain else 'Text'})")
     
     # 2. Auto-discovery of Pipelines
     active_pipelines = []

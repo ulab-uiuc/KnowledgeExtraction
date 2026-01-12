@@ -1,6 +1,7 @@
 import asyncio
 from agents.clientpool import safe_ask
 from typing import List
+from tqdm import tqdm
 
 class DomainJudge:
     def __init__(self, client_pool, model: str = "meta/llama-3.1-8b-instruct"):
@@ -39,7 +40,17 @@ class DomainJudge:
     async def check_batch(self, query: str, points: List[str]) -> List[bool]:
         """
         Parallelize judge calls using asyncio.gather for high performance.
+        Includes a progress bar.
         """
-        tasks = [self.is_in_domain(query, point) for point in points]
-        return await asyncio.gather(*tasks)
+        pbar = tqdm(total=len(points), desc="Auditing")
+        
+        async def tracked_is_in_domain(q, p):
+            res = await self.is_in_domain(q, p)
+            pbar.update(1)
+            return res
+
+        tasks = [tracked_is_in_domain(query, point) for point in points]
+        results = await asyncio.gather(*tasks)
+        pbar.close()
+        return results
 

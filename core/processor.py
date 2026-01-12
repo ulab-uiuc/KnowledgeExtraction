@@ -2,46 +2,68 @@ import numpy as np
 import asyncio
 import json
 import os
-from typing import List, Dict, Any, Set
+from typing import List, Dict, Any, Set, Optional, Tuple
+from tqdm import tqdm
 from agents.clientpool import safe_embed, safe_ask
 
 class KnowledgeProcessor:
-    def __init__(self, client_pool, threshold: float = 0.90, candidate_threshold: float = 0.80, embed_model: str = "nvidia/nv-embed-v1", embed_client_pool=None):
+    def __init__(self, client_pool, threshold: float = 0.92, candidate_threshold: float = 0.82, embed_model: str = "nvidia/nv-embed-v1", embed_client_pool=None):
         self.client_pool = client_pool
         self.embed_client_pool = embed_client_pool or client_pool
         self.threshold = threshold  # Auto-merge above this
         self.candidate_threshold = candidate_threshold # Ask LLM between this and auto-merge
         self.embed_model = embed_model
-        # List of { 
-        #   "representative_text": str, 
-        #   "centroid_embedding": np.ndarray, 
-        #   "source_entries": List[Dict], 
-        #   "pipelines": Set[str] 
-        # }
+        
+        # Performance optimizations
         self.union_set: List[Dict[str, Any]] = []
+        self.embedding_matrix: Optional[np.ndarray] = None # Shape: (N, D)
+        self.llm_cache: Dict[str, bool] = {} # Key: sorted(text1, text2) -> bool
+        self.embed_cache: Dict[str, np.ndarray] = {} # Global cache for embeddings
+        self.llm_semaphore = asyncio.Semaphore(20) # Limit concurrent LLM calls
 
     async def get_embeddings(self, texts: List[str]) -> List[np.ndarray]:
         if not texts:
             return []
         
-        batch_size = 64
-        all_embeddings = []
-        
-        # Check if we are using Nvidia model to add required extra_body
-        kwargs = {}
-        if "nvidia" in self.embed_model.lower():
-            kwargs["extra_body"] = {"input_type": "query", "truncate": "NONE"}
+        # 1. 检查缓存，只处理不在缓存中的文本
+        needed_texts = []
+        text_to_idx = {}
+        for i, t in enumerate(texts):
+            if t in self.embed_cache:
+                continue
+            if t not in text_to_idx:
+                text_to_idx[t] = []
+                needed_texts.append(t)
+            text_to_idx[t].append(i)
 
-        for i in range(0, len(texts), batch_size):
-            batch = texts[i:i + batch_size]
-            response = await safe_embed(
-                self.embed_client_pool,
-                model=self.embed_model,
-                messages=batch,
-                **kwargs
-            )
-            all_embeddings.extend([np.array(d.embedding) for d in response.data])
-        return all_embeddings
+        if needed_texts:
+            batch_size = 64
+            # Check if we are using Nvidia model to add required extra_body
+            kwargs = {}
+            if "nvidia" in self.embed_model.lower():
+                kwargs["extra_body"] = {"input_type": "query", "truncate": "NONE"}
+
+            for i in range(0, len(needed_texts), batch_size):
+                batch = needed_texts[i:i + batch_size]
+                
+                # --- NEW: 强制截断以防止超过 Embedding 模型限制 (通常为 4096) ---
+                # 我们取前 3000 个字符，这通常远小于 4096 tokens 但足以代表语义
+                safe_batch = [t[:10000] if len(t) < 10000 else t[:10000] for t in batch] 
+                # 实际上 5154 tokens 对应的字符数大概在 15000-20000 左右
+                # 为了保险，我们在这里对输入进行简单的长度限制
+                safe_batch = [t[:12000] for t in batch] 
+
+                response = await safe_embed(
+                    self.embed_client_pool,
+                    model=self.embed_model,
+                    messages=safe_batch,
+                    **kwargs
+                )
+                for t, d in zip(batch, response.data):
+                    self.embed_cache[t] = np.array(d.embedding)
+
+        # 2. 从缓存中构建最终结果列表
+        return [self.embed_cache[t] for t in texts]
 
     def cosine_similarity(self, a: np.ndarray, b: np.ndarray) -> float:
         norm_a = np.linalg.norm(a)
@@ -53,8 +75,13 @@ class KnowledgeProcessor:
     async def _ask_llm_if_same(self, text1: str, text2: str) -> bool:
         """
         Use a more capable model to judge if two points are semantically identical.
-        Updated to use Llama-3.1-70B for better accuracy in the grey zone.
+        Includes caching and semaphore for performance.
         """
+        # 1. Check cache
+        cache_key = "||".join(sorted([text1, text2]))
+        if cache_key in self.llm_cache:
+            return self.llm_cache[cache_key]
+
         prompt = f"""
         Do these two bullet points describe the same fundamental mathematical concept or property?
         
@@ -73,76 +100,121 @@ class KnowledgeProcessor:
         
         Answer only 'YES' or 'NO'.
         """
-        try:
-            response = await safe_ask(
-                self.client_pool,
-                model="meta/llama-3.1-70b-instruct",
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.0
-            )
-            raw_answer = response.choices[0].message.content.strip().upper()
+        
+        async with self.llm_semaphore:
+            try:
+                response = await safe_ask(
+                    self.client_pool,
+                    model="meta/llama-3.1-70b-instruct",
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.0
+                )
+                raw_answer = response.choices[0].message.content.strip().upper()
+                
+                result = ("YES" in raw_answer) and ("NO" not in raw_answer)
+                self.llm_cache[cache_key] = result
+                return result
+            except Exception:
+                return False
+
+    async def _pre_deduplicate_pipeline(self, pipeline_name: str, bullet_points: List[str]) -> Tuple[List[str], List[np.ndarray]]:
+        """
+        Fast internal deduplication: String match + High-threshold embedding match.
+        Reduces the number of points before global merging.
+        """
+        if not bullet_points:
+            return [], []
+        
+        # 1. Simple string deduplication (preserves order)
+        unique_texts_ordered = list(dict.fromkeys(bullet_points))
+        if len(unique_texts_ordered) < len(bullet_points):
+            print(f"    [Pre-dedup] String deduplication: {len(bullet_points)} -> {len(unique_texts_ordered)}")
             
-            # Robust logic: 
-            # 1. Answer must contain YES
-            # 2. Answer must NOT contain NO (to handle "Yes, but actually No" or confusion)
-            # 3. If neither or both, it defaults to False (No merge)
-            has_yes = "YES" in raw_answer
-            has_no = "NO" in raw_answer
+        embeddings = await self.get_embeddings(unique_texts_ordered)
+        
+        final_texts = []
+        final_embeddings = []
+        
+        # High threshold for safe merging without LLM
+        INTERNAL_THRESHOLD = 0.96 
+        
+        pbar = tqdm(total=len(unique_texts_ordered), desc="    Vector Dedup", leave=False)
+        for text, emb in zip(unique_texts_ordered, embeddings):
+            norm = np.linalg.norm(emb)
+            if norm == 0: 
+                pbar.update(1)
+                continue
             
-            if has_yes and not has_no:
-                return True
-            return False
-        except Exception:
-            return False
+            is_new = True
+            if final_embeddings:
+                # Vectorized similarity check
+                matrix = np.stack(final_embeddings)
+                # Matrix is already normalized from previous iterations
+                sims = np.dot(matrix, emb) / norm
+                if np.max(sims) > INTERNAL_THRESHOLD:
+                    is_new = False
+            
+            if is_new:
+                final_texts.append(text)
+                final_embeddings.append(emb / norm)
+            pbar.update(1)
+        pbar.close()
+        
+        if len(final_texts) < len(unique_texts_ordered):
+            print(f"    [Pre-dedup] Vector deduplication: {len(unique_texts_ordered)} -> {len(final_texts)}")
+            
+        return final_texts, final_embeddings
 
     async def build_union_set(self, results_dir: str):
         """
-        Load all raw JSON files, deduplicate using a hybrid Embedding + LLM approach.
+        Optimized union set builder with NumPy matrix acceleration and pre-deduplication.
         """
         self.union_set = []
-        # Only process files ending with _raw.json
-        files = [f for f in os.listdir(results_dir) if f.endswith("_raw.json")]
+        self.embedding_matrix = None
         
+        files = [f for f in os.listdir(results_dir) if f.endswith("_raw.json")]
         all_pipeline_data = {}
         for f in files:
-            # Strip both '.json' and '_raw' to match original pipeline name
             pipeline_name = f.replace("_raw.json", "") 
             with open(os.path.join(results_dir, f), "r") as f_in:
                 all_pipeline_data[pipeline_name] = json.load(f_in)
 
-        # Sort files to ensure deterministic merging order
         for pipeline_name in sorted(all_pipeline_data.keys()):
-            bullet_points = all_pipeline_data[pipeline_name]
-            embeddings = await self.get_embeddings(bullet_points)
+            raw_points = all_pipeline_data[pipeline_name]
+            print(f"  Processing {pipeline_name} ({len(raw_points)} points)...")
             
-            print(f"  Processing {pipeline_name} ({len(bullet_points)} points)...")
+            # Step 1: Pre-deduplicate
+            bullet_points, embeddings = await self._pre_deduplicate_pipeline(pipeline_name, raw_points)
             
+            # Step 2: Global Merge
+            pbar = tqdm(total=len(bullet_points), desc="    Global Merge", leave=False)
             for text, emb in zip(bullet_points, embeddings):
+                # emb is already normalized by _pre_deduplicate_pipeline
                 match_idx = -1
                 max_sim = -1
-                candidates = [] # List of (idx, sim)
                 
-                # Phase 1: Embedding check
-                for idx, existing in enumerate(self.union_set):
-                    sim = self.cosine_similarity(emb, existing["centroid_embedding"])
-                    if sim >= self.threshold:
-                        if sim > max_sim:
-                            max_sim = sim
-                            match_idx = idx
-                    elif sim >= self.candidate_threshold:
-                        candidates.append((idx, sim))
-                
-                # Phase 2: LLM check for ambiguous cases (if no direct hit)
-                if match_idx == -1 and candidates:
-                    # Check top 3 candidates by similarity
-                    candidates.sort(key=lambda x: x[1], reverse=True)
-                    for idx, sim in candidates[:3]:
-                        if await self._ask_llm_if_same(text, self.union_set[idx]["representative_text"]):
-                            match_idx = idx
-                            max_sim = sim
-                            break
-                
+                if self.union_set:
+                    # 2.1 Fast Matrix Similarity
+                    sims = np.dot(self.embedding_matrix, emb)
+                    
+                    match_idx = int(np.argmax(sims))
+                    max_sim = sims[match_idx]
+                    
+                    if max_sim >= self.threshold:
+                        # Auto-merge
+                        pass
+                    elif max_sim >= self.candidate_threshold:
+                        # LLM Check
+                        if await self._ask_llm_if_same(text, self.union_set[match_idx]["representative_text"]):
+                            # match_idx stays as is
+                            pass
+                        else:
+                            match_idx = -1 # No match
+                    else:
+                        match_idx = -1 # No match
+
                 if match_idx != -1:
+                    # Merge into existing node
                     node = self.union_set[match_idx]
                     node["pipelines"].add(pipeline_name)
                     node["source_entries"].append({
@@ -150,9 +222,15 @@ class KnowledgeProcessor:
                         "pipeline": pipeline_name,
                         "similarity": float(max_sim)
                     })
-                    # Update centroid embedding
+                    
+                    # Update centroid incrementally
                     count = len(node["source_entries"])
-                    node["centroid_embedding"] = (node["centroid_embedding"] * (count - 1) + emb) / count
+                    current_sum = node["centroid_embedding"] * (count - 1)
+                    new_sum = current_sum + emb
+                    node["centroid_embedding"] = new_sum / np.linalg.norm(new_sum)
+                    
+                    # Sync to matrix
+                    self.embedding_matrix[match_idx] = node["centroid_embedding"]
                 else:
                     # Create new node
                     self.union_set.append({
@@ -165,6 +243,15 @@ class KnowledgeProcessor:
                         }],
                         "pipelines": {pipeline_name}
                     })
+                    # Update matrix
+                    if self.embedding_matrix is None:
+                        self.embedding_matrix = emb.reshape(1, -1)
+                    else:
+                        self.embedding_matrix = np.vstack([self.embedding_matrix, emb])
+                pbar.update(1)
+            pbar.close()
+            
+            print(f"    Union set size after {pipeline_name}: {len(self.union_set)}")
 
     def save_union_set(self, output_path: str):
         """Save the union set with detailed traceability."""

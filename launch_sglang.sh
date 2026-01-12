@@ -4,7 +4,7 @@
 MODEL_PATH=${1:-"Qwen/Qwen3-Embedding-8B"}
 PORT=${2:-30000}
 HOST=${3:-"0.0.0.0"}
-GPU_ID=${4:-0}
+GPU_ID=${4:-9}
 
 echo "Starting SGLang server with model: $MODEL_PATH on port: $PORT using GPU: $GPU_ID"
 

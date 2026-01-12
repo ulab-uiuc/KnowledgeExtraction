@@ -74,8 +74,14 @@ async def main():
     # 2. Auto-discovery of Pipelines
     active_pipelines = []
     pipeline_dir = "pipelines"
-    # We only want our new saturation-capable pipelines
-    target_files = ["p2_sequential.py", "p3_reflection.py"] 
+    
+    target_files = [
+        "p2_sequential.py", 
+        "p3_reflection.py", 
+        "p4_taxonomy_explorer.py",
+        "p5_debate.py",
+        "p6_camel.py"
+    ] 
     
     for filename in target_files:
         module_name = f"pipelines.{filename[:-3]}"

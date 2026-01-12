@@ -10,7 +10,8 @@ class BasePipeline(ABC):
         self.processor = processor # We need processor for embeddings
         self.model = model
         self.saturation_threshold = 0.92 # Similarity above this is "old"
-        self.min_novelty_ratio = 0.1     # If less than 10% is new, consider saturated
+        self.min_growth_ratio = 0.01     # If Growth < 1%, consider potentially saturated
+        self.min_efficiency_ratio = 0.1   # If Efficiency < 10%, consider potentially saturated
 
     @abstractmethod
     async def get_next_step(self, query: str, history: List[str], current_points: List[str], turn: int) -> str:
@@ -59,9 +60,13 @@ class BasePipeline(ABC):
             
             for p, emb in zip(new_points, new_embeddings):
                 is_novel = True
-                if all_embeddings:
-                    # Find max similarity with any point from previous turns
-                    similarities = [self.processor.cosine_similarity(emb, prev_emb) for prev_emb in all_embeddings]
+                # Combine historical embeddings with already identified novel embeddings from THIS turn
+                # to prevent intra-turn duplicates from being counted as novel.
+                comparison_pool = all_embeddings + novel_embeddings_this_turn
+                
+                if comparison_pool:
+                    # Find max similarity with any point from previous turns OR current turn's novel points
+                    similarities = [self.processor.cosine_similarity(emb, prev_emb) for prev_emb in comparison_pool]
                     if max(similarities) > self.saturation_threshold:
                         is_novel = False
                 
@@ -70,9 +75,12 @@ class BasePipeline(ABC):
                     novel_embeddings_this_turn.append(emb)
             
             novel_count = len(novel_points_this_turn)
-            novel_ratio = novel_count / len(new_points)
+            # Calculate growth rate relative to all points found so far
+            novel_ratio = novel_count / len(all_raw_points) if all_raw_points else 1.0
+            # Calculate efficiency of this turn
+            efficiency = novel_count / len(new_points)
             
-            print(f"    Turn {turn}: Found {len(new_points)} points. Novel: {novel_count} ({novel_ratio:.1%})")
+            print(f"    Turn {turn}: Found {len(new_points)} points. Novel: {novel_count} (Growth: {novel_ratio:.2%}, Eff: {efficiency:.1%})")
             
             # Store everything
             all_raw_points.extend(new_points)
@@ -83,7 +91,8 @@ class BasePipeline(ABC):
             history.append(f"Assistant: {response}")
             
             # 3. Saturation Check
-            if novel_ratio < self.min_novelty_ratio:
+            # Growth < 1% OR Efficiency < 10% OR absolute novel count is very low
+            if novel_ratio < self.min_growth_ratio or efficiency < self.min_efficiency_ratio or novel_count < 5:
                 stale_turns += 1
                 if stale_turns > patience:
                     print(f"    Saturated after {turn} turns.")
@@ -92,8 +101,8 @@ class BasePipeline(ABC):
                 stale_turns = 0 # Reset if we find new stuff
             
             turn += 1
-            if turn > 10: # Safety cap
-                print("    Reached safety limit of 10 turns.")
+            if turn > 15: # Safety cap
+                print("    Reached safety limit of 20 turns.")
                 break
                 
         # Deduplicate raw points by string exact match before returning

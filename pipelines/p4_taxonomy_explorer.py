@@ -18,7 +18,7 @@ class RecursiveTaxonomyExplorer(BasePipeline):
         self.max_depth = 2
         self.taxonomy = [] # Stores leaf node paths
         self.leaf_knowledge = collections.defaultdict(list) # leaf_path -> list of points
-        self.concurrency_limit = 5 # Limit parallel API calls
+        self.concurrency_limit = 20 # Optimized for 20 valid API keys
         self.semaphore = asyncio.Semaphore(self.concurrency_limit)
 
     async def _safe_generate(self, prompt: str) -> str:

@@ -52,27 +52,14 @@ class BasePipeline(ABC):
                 print(f"    Turn {turn}: No points extracted. Stopping.")
                 break
                 
-            # 2. Check for novelty
+            # 2. Check for novelty (Optimized with Matrix operations)
             new_embeddings = await self.processor.get_embeddings(new_points)
             
-            novel_points_this_turn = []
-            novel_embeddings_this_turn = []
+            # Use vectorized similarity check
+            is_novel_mask = self.processor.get_novelty_mask(new_embeddings, all_embeddings, self.saturation_threshold)
             
-            for p, emb in zip(new_points, new_embeddings):
-                is_novel = True
-                # Combine historical embeddings with already identified novel embeddings from THIS turn
-                # to prevent intra-turn duplicates from being counted as novel.
-                comparison_pool = all_embeddings + novel_embeddings_this_turn
-                
-                if comparison_pool:
-                    # Find max similarity with any point from previous turns OR current turn's novel points
-                    similarities = [self.processor.cosine_similarity(emb, prev_emb) for prev_emb in comparison_pool]
-                    if max(similarities) > self.saturation_threshold:
-                        is_novel = False
-                
-                if is_novel:
-                    novel_points_this_turn.append(p)
-                    novel_embeddings_this_turn.append(emb)
+            novel_points_this_turn = [p for p, is_novel in zip(new_points, is_novel_mask) if is_novel]
+            novel_embeddings_this_turn = [e for e, is_novel in zip(new_embeddings, is_novel_mask) if is_novel]
             
             novel_count = len(novel_points_this_turn)
             # Calculate growth rate relative to all points found so far

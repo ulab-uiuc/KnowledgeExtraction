@@ -25,45 +25,81 @@ class KnowledgeProcessor:
         if not texts:
             return []
         
-        # 1. 检查缓存，只处理不在缓存中的文本
+        # 1. Check cache
         needed_texts = []
-        text_to_idx = {}
-        for i, t in enumerate(texts):
-            if t in self.embed_cache:
-                continue
-            if t not in text_to_idx:
-                text_to_idx[t] = []
+        for t in texts:
+            if t not in self.embed_cache:
                 needed_texts.append(t)
-            text_to_idx[t].append(i)
 
         if needed_texts:
             batch_size = 64
-            # Check if we are using Nvidia model to add required extra_body
             kwargs = {}
             if "nvidia" in self.embed_model.lower():
                 kwargs["extra_body"] = {"input_type": "query", "truncate": "NONE"}
 
+            # --- Optimization: Parallelize all embedding requests ---
+            tasks = []
             for i in range(0, len(needed_texts), batch_size):
                 batch = needed_texts[i:i + batch_size]
-                
-                # --- NEW: 强制截断以防止超过 Embedding 模型限制 (通常为 4096) ---
-                # 我们取前 3000 个字符，这通常远小于 4096 tokens 但足以代表语义
-                safe_batch = [t[:10000] if len(t) < 10000 else t[:10000] for t in batch] 
-                # 实际上 5154 tokens 对应的字符数大概在 15000-20000 左右
-                # 为了保险，我们在这里对输入进行简单的长度限制
-                safe_batch = [t[:12000] for t in batch] 
-
-                response = await safe_embed(
+                # Enforce truncation to prevent overflow
+                safe_batch = [t[:12000] for t in batch]
+                tasks.append(safe_embed(
                     self.embed_client_pool,
                     model=self.embed_model,
                     messages=safe_batch,
                     **kwargs
-                )
-                for t, d in zip(batch, response.data):
-                    self.embed_cache[t] = np.array(d.embedding)
+                ))
+            
+            print(f"      [Embedding] Launching {len(tasks)} parallel batches to local server...")
+            responses = await asyncio.gather(*tasks)
+            
+            # Store in cache
+            idx = 0
+            for resp in responses:
+                for d in resp.data:
+                    self.embed_cache[needed_texts[idx]] = np.array(d.embedding)
+                    idx += 1
 
-        # 2. 从缓存中构建最终结果列表
         return [self.embed_cache[t] for t in texts]
+
+    def get_novelty_mask(self, new_embs: List[np.ndarray], pool_embs: List[np.ndarray], threshold: float) -> List[bool]:
+        """
+        Matrix-accelerated novelty detection using NumPy.
+        Supports: 1. Intra-batch deduplication 2. Pool-based deduplication
+        """
+        if not new_embs:
+            return []
+
+        # 1. Prepare matrix for new points
+        new_mat = np.stack(new_embs) # (N, D)
+        new_mat = new_mat / (np.linalg.norm(new_mat, axis=1, keepdims=True) + 1e-9)
+        
+        N = len(new_embs)
+        is_novel = [True] * N
+
+        # 2. Intra-batch deduplication
+        # Core: Each point only looks at points to its 'left' to avoid double-counting novel points in one turn
+        if N > 1:
+            self_sim_matrix = np.dot(new_mat, new_mat.T)
+            # Use lower triangle (excluding diagonal) where i > j
+            for i in range(1, N):
+                if np.max(self_sim_matrix[i, :i]) > threshold:
+                    is_novel[i] = False
+
+        # 3. Pool deduplication (against history)
+        if pool_embs:
+            pool_mat = np.stack(pool_embs) # (M, D)
+            pool_mat = pool_mat / (np.linalg.norm(pool_mat, axis=1, keepdims=True) + 1e-9)
+            
+            # Global similarity matrix (N, M)
+            sim_matrix = np.dot(new_mat, pool_mat.T)
+            max_sims_to_pool = np.max(sim_matrix, axis=1)
+            
+            for i in range(N):
+                if max_sims_to_pool[i] > threshold:
+                    is_novel[i] = False
+
+        return is_novel
 
     def cosine_similarity(self, a: np.ndarray, b: np.ndarray) -> float:
         norm_a = np.linalg.norm(a)
@@ -212,7 +248,7 @@ class KnowledgeProcessor:
                             match_idx = -1 # No match
                     else:
                         match_idx = -1 # No match
-
+                
                 if match_idx != -1:
                     # Merge into existing node
                     node = self.union_set[match_idx]

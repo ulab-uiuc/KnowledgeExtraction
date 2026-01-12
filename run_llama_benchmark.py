@@ -9,7 +9,7 @@ from core.processor import KnowledgeProcessor
 from core.judge import DomainJudge
 from pipelines.base import BasePipeline
 
-# --- 实验配置 ---
+# --- Experiment Configuration ---
 CATEGORIES = {
     "Deep Learning": [
         "Transformer Architectures",
@@ -44,7 +44,7 @@ PIPELINES_TO_RUN = [
 JUDGE_MODEL = "meta/llama-3.1-8b-instruct"
 
 async def run_single_experiment(category_name, sub_category, model_name, client_pool, api_keys):
-    """运行单个 (Area + Model) 下的所有 Pipelines"""
+    """Run all pipelines for a single (Area + Model) combination"""
     query_id = sub_category.lower().replace(" ", "_")
     cat_id = category_name.lower().replace(" ", "_")
     output_dir = os.path.join("results", cat_id, query_id)
@@ -52,11 +52,10 @@ async def run_single_experiment(category_name, sub_category, model_name, client_
 
     print(f"\n>>> Running: [{category_name}] {sub_category} | Model: {model_name}")
 
-    # 1. 初始化通用组件
-    # 注意：这里的 GenAgent 需要传入 model_name
+    # 1. Initialize components
     gen_agent = GenAgent(api_key=api_keys, model=model_name)
     
-    # Embedding 暂时使用默认
+    # Use default embedding settings
     processor = KnowledgeProcessor(
         client_pool=client_pool,
         embed_client_pool=client_pool,
@@ -65,7 +64,7 @@ async def run_single_experiment(category_name, sub_category, model_name, client_
     
     judge = DomainJudge(client_pool=client_pool, model=JUDGE_MODEL)
 
-    # 2. 加载选定的 Pipelines
+    # 2. Load selected Pipelines
     active_pipelines = []
     for p_file in PIPELINES_TO_RUN:
         module_name = f"pipelines.{p_file}"
@@ -73,19 +72,19 @@ async def run_single_experiment(category_name, sub_category, model_name, client_
             module = importlib.import_module(module_name)
             for name, obj in inspect.getmembers(module):
                 if inspect.isclass(obj) and issubclass(obj, BasePipeline) and obj != BasePipeline:
-                    # 传入指定的 model 供 pipeline 内部使用
+                    # Initialize with model name for internal use
                     active_pipelines.append((name, obj(gen_agent, processor, model=model_name)))
         except Exception as e:
             print(f"  Error loading pipeline {p_file}: {e}")
 
-    # 3. 运行每个 Pipeline 并保存原始结果
+    # 3. Run each Pipeline and save raw outputs
     pipeline_raw_outputs = {}
     model_slug = model_name.split("/")[-1] # e.g., llama-3.1-8b-instruct
 
     for name, pipeline in active_pipelines:
         raw_file = os.path.join(output_dir, f"{model_slug}_{name}_raw.json")
         
-        # 如果文件已存在则跳过（方便断点续传）
+        # Resume support: skip if file exists
         if os.path.exists(raw_file):
             print(f"  Pipeline {name} already exists. Skipping.")
             with open(raw_file, "r") as f:
@@ -103,16 +102,13 @@ async def run_single_experiment(category_name, sub_category, model_name, client_
         except Exception as e:
             print(f"    Error in {name}: {e}")
 
-    # 4. 构建当前模型在当前 Area 下的 Union Set 并进行审计 (Post-Audit)
-    # 这一步可以选择在所有运行结束后批量处理，或者现在处理。
-    # 为了能实时看到进度，我们在这里处理当前模型的局部并集。
-    
-    # 注意：build_union_set 目前逻辑是从文件夹读取，我们需要稍微调整或手动调用
-    # 这里我们只做生成，后续审计可以单独脚本跑，防止 API 压力过大
+    # 4. Global Evaluation and Auditing
+    # This phase is typically handled in a separate post-processing step
+    # to avoid overwhelming the API during massive extraction runs.
     print(f"  Extraction for {model_slug} on {sub_category} done.")
 
 async def main():
-    # 加载 API Key
+    # Load API Keys
     if not os.path.exists("api.json"):
         print("Error: api.json not found.")
         return
@@ -122,7 +118,7 @@ async def main():
     api_keys = api_data["api_keys"]
     client_pool = MultiKeyClientPool(api_keys=api_keys)
 
-    # 遍历所有大类、小类、模型
+    # Main loop through categories and models
     for cat_name, sub_cats in CATEGORIES.items():
         for sub_cat in sub_cats:
             for model_name in LLAMA_MODELS:

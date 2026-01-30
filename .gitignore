@@ -1,0 +1,53 @@
+# Data and results
+dataset/
+results/
+paper/
+
+# API keys and secrets
+api.json
+.env
+
+# Python
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Cache files
+*.pkl
+embeddings_cache.pkl
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Temporary files
+human_eval_samples/
+test_*.py
+verify_*.py
+run_test_small.py
+*.pdf
+
+# Temporary markdown/notes
+PAPER_TODO.md
+LOCAL_QWEN_SETUP.md
+PROGRESS_SUMMARY.md
+RERUN_INSTRUCTIONS.md
+exp.md
+intro.md
+final_evaluation_report.txt
+pareto_curve_data.json
+*.txt
+
+# Shell scripts (keep launch_sglang.sh)
+auto_pareto.sh
+qwen.sh
+series.sh
+size.sh

@@ -7,7 +7,7 @@
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Paper (arXiv)]() | [Project Page]() | [Code](https://github.com/ulab-uiuc/KnowledgeExtraction)
+[Paper (arXiv)]() | [Project Page](https://ulab-uiuc.github.io/KnowledgeExtraction/) | [Code](https://github.com/ulab-uiuc/KnowledgeExtraction)
 
 </div>
 

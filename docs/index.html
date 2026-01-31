@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probing the Knowledge Boundary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --code-bg: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            background: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .venue {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .authors {
+            margin-bottom: 32px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .authors a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .authors a:hover {
+            color: var(--primary-color);
+        }
+
+        .affiliations {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .link-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .link-btn.primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .link-btn.secondary {
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .link-btn.secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
+
+        /* Abstract */
+        .abstract-text {
+            font-size: 1.05rem;
+            text-align: justify;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Teaser */
+        .teaser-img {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .teaser-caption {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        /* Key Findings */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .finding-card {
+            background: var(--bg-color);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .finding-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .finding-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .finding-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Results Gallery - Vertical Layout */
+        .results-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            margin-top: 32px;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-item img {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .result-item .caption {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .result-item .caption strong {
+            color: var(--text-color);
+        }
+
+        /* Method */
+        .method-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .method-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: var(--text-color);
+        }
+
+        .method-text h3:first-child {
+            margin-top: 0;
+        }
+
+        .method-text ul {
+            padding-left: 24px;
+            color: var(--text-light);
+        }
+
+        .method-text li {
+            margin-bottom: 8px;
+        }
+
+        .method-text strong {
+            color: var(--text-color);
+        }
+
+        /* Policy Table */
+        .policy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .policy-table th,
+        .policy-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .policy-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .policy-table td:first-child {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        /* Citation */
+        .citation-box {
+            background: var(--code-bg);
+            padding: 24px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .citation-box pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .link-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Probing the Knowledge Boundary</h1>
+            <p class="subtitle">An Interactive Agentic Framework for Deep Knowledge Extraction</p>
+
+            <p class="authors">
+                <a href="#">Yuheng Yang</a><sup>1,2</sup>,
+                <a href="#">Siqi Zhu</a><sup>1</sup>,
+                <a href="#">Tao Feng</a><sup>1</sup>,
+                <a href="#">Ge Liu</a><sup>1</sup>,
+                <a href="#">Jiaxuan You</a><sup>1</sup>
+            </p>
+
+            <p class="affiliations">
+                <sup>1</sup>University of Illinois at Urbana-Champaign &nbsp;&nbsp;
+                <sup>2</sup>Westlake University
+            </p>
+
+            <div class="links">
+                <a href="#" class="link-btn primary">
+                    <i class="fa-solid fa-file-pdf"></i> Paper
+                </a>
+                <a href="#" class="link-btn secondary">
+                    <i class="fa-brands fa-github"></i> Code
+                </a>
+                <a href="#" class="link-btn secondary">
+                    <i class="fa-solid fa-database"></i> Data
+                </a>
+                <a href="#" class="link-btn secondary">
+                    <i class="ai ai-arxiv"></i> arXiv
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Abstract</h2>
+            <p class="abstract-text">
+                Large Language Models (LLMs) can be seen as compressed knowledge bases, but it remains unclear what knowledge they truly contain and how far their knowledge boundaries extend. Existing benchmarks are mostly static and provide limited support for systematic knowledge probing. In this paper, we propose an interactive agentic framework to systematically extract and quantify the knowledge of LLMs. Our method includes four adaptive exploration policies to probe knowledge at different granularities. To ensure the quality of extracted knowledge, we introduce a three-stage knowledge processing pipeline that combines vector-based filtering to remove exact duplicates, LLM-based adjudication to resolve ambiguous semantic overlaps, and domain-relevance auditing to retain valid knowledge units. Through extensive experiments, we find that recursive taxonomy is the most effective exploration strategy. We also observe a clear knowledge scaling law, where larger models consistently extract more knowledge. In addition, we identify a Pass@1-versus-Pass@k trade-off: domain-specialized models achieve higher initial accuracy but degrade rapidly, while general-purpose models maintain stable performance during extended extraction. Finally, our results show that differences in training data composition lead to distinct and measurable knowledge profiles across model families.
+            </p>
+        </div>
+    </section>
+
+    <!-- Method Overview -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Method Overview</h2>
+
+            <img src="static/images/framework.png" alt="Framework Overview" class="teaser-img" style="margin-bottom: 32px;">
+
+            <div class="method-content">
+                <div class="method-text">
+                    <h3>Exploration Policies</h3>
+                    <p>We design four adaptive strategies to overcome the model's "comfort zone" effect:</p>
+
+                    <table class="policy-table">
+                        <thead>
+                            <tr>
+                                <th>Policy</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P2: Sequential Probing</td>
+                                <td>Iterative "What else?" baseline for associative knowledge retrieval</td>
+                            </tr>
+                            <tr>
+                                <td>P3: Self-Reflection</td>
+                                <td>Critic-actor loop with self-audit to refine and expand responses</td>
+                            </tr>
+                            <tr>
+                                <td>P4: Recursive Taxonomy</td>
+                                <td>Hierarchical decomposition with configurable branching factor</td>
+                            </tr>
+                            <tr>
+                                <td>P5: Multi-Perspective</td>
+                                <td>N expert personas working in parallel for diverse viewpoints</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Knowledge Processor</h3>
+                    <p>Three-stage pipeline ensuring semantic uniqueness and validity:</p>
+                    <ul>
+                        <li><strong>Stage 1 - Vector Filtering:</strong> Cosine similarity > 0.92 triggers immediate merge</li>
+                        <li><strong>Stage 2 - LLM Adjudication:</strong> Ambiguous pairs (0.70-0.92) judged by LLM</li>
+                        <li><strong>Stage 3 - Domain Auditing:</strong> Bloom's Taxonomy-based relevance filtering</li>
+                    </ul>
+
+                    <h3>Saturation Detection</h3>
+                    <p>Automatic stopping when knowledge growth saturates:</p>
+                    <ul>
+                        <li>Growth rate drops below 1% per turn</li>
+                        <li>Extraction efficiency falls below 10%</li>
+                        <li>Novel discoveries fewer than 3 per turn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Results</h2>
+
+            <div class="results-gallery">
+                <div class="result-item">
+                    <img src="static/images/pareto_curve.png" alt="Pareto Knowledge Frontier">
+                    <p class="caption"><strong>Pareto Knowledge Frontier.</strong> Recursive taxonomy (P4) dominates the efficiency frontier across all domains.</p>
+                </div>
+                <div class="result-item">
+                    <img src="static/images/rl_curve.png" alt="Specialization Trade-off">
+                    <p class="caption"><strong>Specialization Trade-off.</strong> RL-tuned models show improved accuracy but reduced recall in non-target domains.</p>
+                </div>
+                <div class="result-item">
+                    <img src="static/images/series_curve.png" alt="Cross-Series Comparison">
+                    <p class="caption"><strong>Cross-Series Comparison.</strong> Different model families exhibit distinct knowledge profiles at similar parameter counts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Citation</h2>
+            <div class="citation-box">
+                <button class="copy-btn" onclick="copyBibtex()">
+                    <i class="fa-regular fa-copy"></i> Copy
+                </button>
+                <pre>@article{yang2025probing,
+  title={Probing the Knowledge Boundary: An Interactive Agentic Framework for Deep Knowledge Extraction},
+  author={Yang, Yuheng and Zhu, Siqi and Feng, Tao and Liu, Ge and You, Jiaxuan},
+  journal={arXiv preprint},
+  year={2025}
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>
+                This website template is adapted from
+                <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            </p>
+            <p style="margin-top: 8px;">
+                <a href="https://github.com/ulab-uiuc/KnowledgeExtraction" target="_blank">
+                    <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function copyBibtex() {
+            const bibtex = `@article{yang2025probing,
+  title={Probing the Knowledge Boundary: An Interactive Agentic Framework for Deep Knowledge Extraction},
+  author={Yang, Yuheng and Zhu, Siqi and Feng, Tao and Liu, Ge and You, Jiaxuan},
+  journal={arXiv preprint},
+  year={2025}
+}`;
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

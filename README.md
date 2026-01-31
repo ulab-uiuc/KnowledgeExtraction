@@ -14,7 +14,7 @@
 ## Overview
 
 <p align="center">
-  <img src="docs/static/images/framework.png" width="80%">
+  <img src="docs/static/images/framework.png" width="92%">
 </p>
 
 This framework systematically extracts and quantifies the latent knowledge of black-box LLMs through interactive agentic exploration.

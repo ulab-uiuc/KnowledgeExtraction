@@ -522,11 +522,14 @@
                 <button class="copy-btn" onclick="copyBibtex()">
                     <i class="fa-regular fa-copy"></i> Copy
                 </button>
-                <pre>@article{yang2025probing,
+                <pre>@misc{yang2026probing,
   title={Probing the Knowledge Boundary: An Interactive Agentic Framework for Deep Knowledge Extraction},
-  author={Yang, Yuheng and Zhu, Siqi and Feng, Tao and Liu, Ge and You, Jiaxuan},
-  journal={arXiv preprint arXiv:2602.00959},
-  year={2025}
+  author={Yuheng Yang and Siqi Zhu and Tao Feng and Ge Liu and Jiaxuan You},
+  year={2026},
+  eprint={2602.00959},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2602.00959}
 }</pre>
             </div>
         </div>
@@ -554,11 +557,14 @@
 
     <script>
         function copyBibtex() {
-            const bibtex = `@article{yang2025probing,
+            const bibtex = `@misc{yang2026probing,
   title={Probing the Knowledge Boundary: An Interactive Agentic Framework for Deep Knowledge Extraction},
-  author={Yang, Yuheng and Zhu, Siqi and Feng, Tao and Liu, Ge and You, Jiaxuan},
-  journal={arXiv preprint arXiv:2602.00959},
-  year={2025}
+  author={Yuheng Yang and Siqi Zhu and Tao Feng and Ge Liu and Jiaxuan You},
+  year={2026},
+  eprint={2602.00959},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2602.00959}
 }`;
             navigator.clipboard.writeText(bibtex).then(() => {
                 const btn = document.querySelector('.copy-btn');

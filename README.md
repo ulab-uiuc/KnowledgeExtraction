@@ -123,11 +123,14 @@ KnowledgeExtraction/
 If you find this work useful, please cite our paper:
 
 ```bibtex
-@article{yang2025probing,
+@misc{yang2026probing,
   title={Probing the Knowledge Boundary: An Interactive Agentic Framework for Deep Knowledge Extraction},
-  author={Yang, Yuheng and Zhu, Siqi and Feng, Tao and Liu, Ge and You, Jiaxuan},
-  journal={arXiv preprint arXiv:2602.00959},
-  year={2025}
+  author={Yuheng Yang and Siqi Zhu and Tao Feng and Ge Liu and Jiaxuan You},
+  year={2026},
+  eprint={2602.00959},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2602.00959}
 }
 ```
 

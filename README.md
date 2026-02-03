@@ -7,7 +7,7 @@
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Paper (arXiv)]() | [Project Page](https://ulab-uiuc.github.io/KnowledgeExtraction/) | [Code](https://github.com/ulab-uiuc/KnowledgeExtraction)
+[Paper (arXiv)](https://arxiv.org/abs/2602.00959) | [Project Page](https://ulab-uiuc.github.io/KnowledgeExtraction/) | [Code](https://github.com/ulab-uiuc/KnowledgeExtraction)
 
 </div>
 
@@ -77,20 +77,20 @@ We provide scripts to reproduce all experiments from the paper:
 
 | Experiment | Description | Command |
 |------------|-------------|---------|
-| **Exp1: Strategy Search** | Pareto frontier analysis | `python run_pareto_curves.py` |
-| **Exp2: Scaling Law** | Cross-scale comparison (8B/70B/405B) | `python run_size_comparison.py` |
-| **Exp3: Specialization** | General vs RL-tuned models | `python run_evolution_comparison.py` |
-| **Exp4: Cross-Series** | Different model families (~7B) | `python run_cross_series.py` |
+| **Exp1: Strategy Search** | Pareto frontier analysis | `python scripts/run_pareto_curves.py` |
+| **Exp2: Scaling Law** | Cross-scale comparison (8B/70B/405B) | `python scripts/run_size_comparison.py` |
+| **Exp3: Specialization** | General vs RL-tuned models | `python scripts/run_evolution_comparison.py` |
+| **Exp4: Cross-Series** | Different model families (~7B) | `python scripts/run_cross_series.py` |
 
 ### Example: Reproduce Experiment 1
 
 ```bash
 # Run extraction with all strategies
-python run_pareto_curves.py
+python scripts/run_pareto_curves.py
 
 # Evaluate and generate plots
-python evaluate_pareto_curves.py
-python plot_aggregated_pareto.py
+python scripts/evaluate_pareto_curves.py
+python scripts/plot_aggregated_pareto.py
 ```
 
 ## Project Structure
@@ -103,6 +103,7 @@ KnowledgeExtraction/
 ├── core/                   # Core processing modules
 │   ├── processor.py       # Embedding and deduplication
 │   ├── judge.py           # Domain relevance auditing
+│   ├── evaluator.py       # Evaluation metrics computation
 │   └── cleaner.py         # Bullet point extraction
 ├── pipelines/              # Exploration strategies
 │   ├── base.py            # Base pipeline with saturation detection
@@ -110,9 +111,11 @@ KnowledgeExtraction/
 │   ├── p3_reflection.py   # Self-reflective refinement
 │   ├── p4_taxonomy_explorer.py  # Recursive taxonomy
 │   └── p5_debate.py       # Multi-perspective debate
-├── run_*.py               # Experiment runners
-├── evaluate_*.py          # Evaluation pipelines
-└── plot_*.py              # Visualization scripts
+├── scripts/                # Experiment scripts
+│   ├── run_*.py           # Experiment runners
+│   ├── evaluate_*.py      # Evaluation pipelines
+│   └── plot_*.py          # Visualization scripts
+└── utils/                  # Utility functions
 ```
 
 ## Citation
@@ -123,7 +126,7 @@ If you find this work useful, please cite our paper:
 @article{yang2025probing,
   title={Probing the Knowledge Boundary: An Interactive Agentic Framework for Deep Knowledge Extraction},
   author={Yang, Yuheng and Zhu, Siqi and Feng, Tao and Liu, Ge and You, Jiaxuan},
-  journal={arXiv preprint},
+  journal={arXiv preprint arXiv:2602.00959},
   year={2025}
 }
 ```
